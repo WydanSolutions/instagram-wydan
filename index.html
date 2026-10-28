@@ -92,7 +92,12 @@
   .tipo.aviso { background: #EEF0F3; color: var(--acero); }
   .marca-hoy { font-size: 11px; font-weight: 800; color: var(--blanco); background: var(--chispa); border-radius: 99px; padding: 2px 8px; margin-left: 6px; }
   .tarea input { width: 22px; height: 22px; accent-color: var(--ok); cursor: pointer; margin-top: 2px; }
-  @media (max-width: 560px) { .tarea { grid-template-columns: 70px 1fr auto; gap: 10px; padding: 12px 4px; } }
+  @media (max-width: 560px) {
+    .tarea { grid-template-columns: 70px 1fr auto; gap: 10px; padding: 12px 4px; }
+    .fila-perfil { gap: 14px; }
+    .fila-perfil img { width: 70px; height: 70px; }
+    .numeros { gap: 10px; font-size: 12px; }
+  }
 
   @media (max-width: 860px) {
     .arriba, .pub-cuerpo { grid-template-columns: 1fr; }
@@ -170,7 +175,7 @@ Desde el celular o la compu
   <div id="publicaciones"></div>
 </div>
 
-<script src="publicaciones.js?v=202610281919"></script>
+<script src="publicaciones.js?v=202610281925"></script>
 <script>
   const VIDEOS = 'videos/';
   const carpeta = p => `imagenes/${String(p.n).padStart(2, '0')}-${p.id}/`;
