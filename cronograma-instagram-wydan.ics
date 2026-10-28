@@ -1,0 +1,440 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Wydan Solutions//Instagram//ES
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Instagram Wydan
+X-WR-TIMEZONE:America/Montevideo
+BEGIN:VEVENT
+UID:c1-hola@instagram.wydan
+DTSTAMP:20261028T191509Z
+DTSTART:20261103T220000Z
+DTEND:20261103T221500Z
+SUMMARY:📲 Instagram: publicar 1. Hola\, somos Wydan (carrusel)
+DESCRIPTION:Archivos: Instagram-Wydan/imagenes/01-c1-hola/\n\nTEXTO PARA CO
+ PIAR:\n\nHola 👋 Somos Wydan.\n\nCreamos páginas de gestión hechas 100
+  % a medida: un solo lugar para tus clientes\, ventas\, stock\, turnos y c
+ obros.\n\nNo es una plantilla. La armamos a partir de cómo trabajás vos\
+ , con tu logo y tus colores. Y la usás desde la compu\, el celular o la t
+ ablet\, sin instalar nada.\n\n¿Querés ver cómo sería la tuya?\n👉 Es
+ cribí DEMO por WhatsApp al 097 096 996 (o por mensaje directo) y te armam
+ os una demostración gratis\, con tu logo.\n\n#Wydan #PymesUruguay #Empren
+ dedoresUruguay #Rivera #Uruguay #GestiónDeNegocios
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Recordatorio
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:r1-presentacion@instagram.wydan
+DTSTAMP:20261028T191509Z
+DTSTART:20261103T221500Z
+DTEND:20261103T223000Z
+SUMMARY:📲 Instagram: publicar 2. Presentación de Wydan (reel)
+DESCRIPTION:Archivos: Instagram-Wydan/imagenes/02-r1-presentacion/ + video 
+ Video-Wydan/salida/wydan-vertical.mp4\n\nTEXTO PARA COPIAR:\n\nDel cuadern
+ o\, el Excel y los mil mensajes… a una sola página con todo tu negocio 
+ 📲\n\nAsí trabajamos en Wydan: cada página es distinta porque cada neg
+ ocio es distinto. Contadores\, talleres\, barracas\, centros de estética
+ … y el tuyo.\n\n👉 Escribí DEMO por WhatsApp al 097 096 996 (o por me
+ nsaje directo) y te armamos una demostración gratis\, con tu logo.\n\n#Wy
+ dan #PymesUruguay #EmprendedoresUruguay #Rivera #Uruguay #NegocioOrdenado
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Recordatorio
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:c2-como-funciona@instagram.wydan
+DTSTAMP:20261028T191509Z
+DTSTART:20261103T223000Z
+DTEND:20261103T224500Z
+SUMMARY:📲 Instagram: publicar 3. Cómo funciona\, en 4 pasos (carrusel)
+DESCRIPTION:Archivos: Instagram-Wydan/imagenes/03-c2-como-funciona/\n\nTEXT
+ O PARA COPIAR:\n\n¿Cómo es tener tu propia página de gestión? Más fá
+ cil de lo que pensás 👇\n\n1️⃣ Nos contás cómo trabajás.\n2️
+ ⃣ Te armamos una demo gratis\, con tu logo.\n3️⃣ La ajustamos juntos
+ : nos adaptamos a vos\, no vos a nosotros.\n4️⃣ La usás todos los dí
+ as\, desde donde estés.\n\nEl primer paso no cuesta nada.\n👉 Escribí 
+ DEMO por WhatsApp al 097 096 996 (o por mensaje directo) y te armamos una 
+ demostración gratis\, con tu logo.\n\n#Wydan #PymesUruguay #Emprendedores
+ Uruguay #Rivera #Uruguay #Digitalización
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Recordatorio
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:r2-homo-planillus@instagram.wydan
+DTSTAMP:20261028T191509Z
+DTSTART:20261106T223000Z
+DTEND:20261106T224500Z
+SUMMARY:📲 Instagram: publicar 4. Homo Planillus (reel)
+DESCRIPTION:Archivos: Instagram-Wydan/imagenes/04-r2-homo-planillus/ + vide
+ o Video-Wydan/salida/homo-planillus-vertical.mp4\n\nTEXTO PARA COPIAR:\n\n
+ Lo vimos en todos los rubros: el Homo Planillus 🦍📋\n\nCuatro planill
+ as que no coinciden\, la caza del dato que dura 14 minutos y el grito de s
+ iempre: «lo tengo anotado en algún lado».\n\nPor suerte\, algunos ejemp
+ lares evolucionaron. ¿Conocés a alguno que todavía no? Etiquetalo 👇\
+ n\n👉 Escribí DEMO por WhatsApp al 097 096 996 (o por mensaje directo) 
+ y te armamos una demostración gratis\, con tu logo.\n\n#Wydan #PymesUrugu
+ ay #EmprendedoresUruguay #Rivera #Uruguay #HumorEmprendedor
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Recordatorio
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:c3-senales@instagram.wydan
+DTSTAMP:20261028T191509Z
+DTSTART:20261109T223000Z
+DTEND:20261109T224500Z
+SUMMARY:📲 Instagram: publicar 5. 5 señales de que tu negocio necesita o
+ rdenarse (carrusel)
+DESCRIPTION:Archivos: Instagram-Wydan/imagenes/05-c3-senales/\n\nTEXTO PARA
+  COPIAR:\n\n5 señales de que tu negocio necesita ordenarse 👇 (sé sinc
+ ero/a 😅)\n\n1. Para encontrar un dato\, buscás en 3 lugares.\n2. El st
+ ock lo sabés «a ojo».\n3. Te enterás de los vencimientos cuando ya pas
+ aron.\n4. Hay cobros que se te olvidan.\n5. Si vos no estás\, nadie sabe 
+ nada.\n\n¿Con cuántas te identificaste? Contanos en los comentarios.\nSi
+  fueron 2 o más\, tiene arreglo:\n👉 Escribí DEMO por WhatsApp al 097 
+ 096 996 (o por mensaje directo) y te armamos una demostración gratis\, co
+ n tu logo.\n\n#Wydan #PymesUruguay #EmprendedoresUruguay #Rivera #Uruguay 
+ #ConsejosParaEmprendedores
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Recordatorio
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:r3-cronometro@instagram.wydan
+DTSTAMP:20261028T191509Z
+DTSTART:20261111T223000Z
+DTEND:20261111T224500Z
+SUMMARY:📲 Instagram: publicar 6. El cronómetro (reel)
+DESCRIPTION:Archivos: Instagram-Wydan/imagenes/06-r3-cronometro/ + video Vi
+ deo-Wydan/salida/el-cronometro-vertical.mp4\n\nTEXTO PARA COPIAR:\n\n⏱
+ ️ 4 preguntas de todos los días. Un reloj corriendo.\n\n¿En qué etapa
+  está el camión? ¿Qué vence esta semana? ¿Hay turno mañana a las 14?
+  ¿Cuánto cemento queda?\n\nCon el cuaderno… seguimos buscando. Con tu 
+ página: las 4 en menos de 8 segundos.\n\n¿Cuánto tardás vos? 👇\n
+ 👉 Escribí DEMO por WhatsApp al 097 096 996 (o por mensaje directo) y t
+ e armamos una demostración gratis\, con tu logo.\n\n#Wydan #PymesUruguay 
+ #EmprendedoresUruguay #Rivera #Uruguay #Productividad
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Recordatorio
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:c4-paginas@instagram.wydan
+DTSTAMP:20261028T191509Z
+DTSTART:20261113T223000Z
+DTEND:20261113T224500Z
+SUMMARY:📲 Instagram: publicar 7. Páginas que ya creamos (carrusel)
+DESCRIPTION:Archivos: Instagram-Wydan/imagenes/07-c4-paginas/\n\nTEXTO PARA
+  COPIAR:\n\nCada negocio es distinto. Por eso cada página también 🧩\n
+ \n✂️ Centro de estética: turnos sin superposiciones y recordatorios p
+ or WhatsApp.\n🧱 Barraca: cada venta descuenta el stock sola.\n🔧 Tall
+ er: cada auto\, en qué etapa está.\n📑 Escribanía: firmas y plazos ba
+ jo control.\n📊 Estudio contable: ningún vencimiento se pasa.\n\n(Son d
+ emostraciones con datos de ejemplo.)\n\n¿Y tu rubro? Contanos cuál es en
+  los comentarios 👇\n👉 Escribí DEMO por WhatsApp al 097 096 996 (o p
+ or mensaje directo) y te armamos una demostración gratis\, con tu logo.\n
+ \n#Wydan #PymesUruguay #EmprendedoresUruguay #Rivera #Uruguay #SoftwareAMe
+ dida
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Recordatorio
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:r4-top5-excusas@instagram.wydan
+DTSTAMP:20261028T191509Z
+DTSTART:20261116T223000Z
+DTEND:20261116T224500Z
+SUMMARY:📲 Instagram: publicar 8. Top 5 excusas (reel)
+DESCRIPTION:Archivos: Instagram-Wydan/imagenes/08-r4-top5-excusas/ + video 
+ Video-Wydan/salida/top5-excusas-vertical.mp4\n\nTEXTO PARA COPIAR:\n\nTop 
+ 5 excusas de un negocio desordenado 🏆\n\n#5 «Te lo anoté en un papel
+ …»\n…y el #1 lo dijimos todos alguna vez 😅\n\n¿Cuál es la que m
+ ás escuchás? ¿Cuál falta en la lista? 👇\n\nTodas tienen arreglo:\n
+ 👉 Escribí DEMO por WhatsApp al 097 096 996 (o por mensaje directo) y t
+ e armamos una demostración gratis\, con tu logo.\n\n#Wydan #PymesUruguay 
+ #EmprendedoresUruguay #Rivera #Uruguay #HumorEmprendedor
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Recordatorio
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:c5-planilla-vs-pagina@instagram.wydan
+DTSTAMP:20261028T191509Z
+DTSTART:20261118T223000Z
+DTEND:20261118T224500Z
+SUMMARY:📲 Instagram: publicar 9. Planilla vs. página (carrusel)
+DESCRIPTION:Archivos: Instagram-Wydan/imagenes/09-c5-planilla-vs-pagina/\n\
+ nTEXTO PARA COPIAR:\n\nPlanilla vs. página: lo mismo de todos los días\,
+  de dos maneras 👇\n\n🔎 Buscar un cliente\n📈 Saber cuánto vendist
+ e\n📦 Controlar el stock\n👥 Trabajar en equipo\n📱 Usarlo desde el 
+ celular\n\nDeslizá y decinos: ¿de qué lado estás hoy? 😉\n\n👉 Esc
+ ribí DEMO por WhatsApp al 097 096 996 (o por mensaje directo) y te armamo
+ s una demostración gratis\, con tu logo.\n\n#Wydan #PymesUruguay #Emprend
+ edoresUruguay #Rivera #Uruguay #Excel
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Recordatorio
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:r5-el-chat@instagram.wydan
+DTSTAMP:20261028T191509Z
+DTSTART:20261120T223000Z
+DTEND:20261120T224500Z
+SUMMARY:📲 Instagram: publicar 10. El chat (reel)
+DESCRIPTION:Archivos: Instagram-Wydan/imagenes/10-r5-el-chat/ + video Video
+ -Wydan/salida/el-chat-vertical.mp4\n\nTEXTO PARA COPIAR:\n\nJorge tiene un
+ a barraca… y un cuaderno lleno de tachones 📒\n\nNos mandó su logo po
+ r WhatsApp. Tres días después tenía su propia página funcionando.\n«
+ ¡¿Esto es MÍO?!» 😄\n\n(Jorge es el personaje de una de nuestras dem
+ os\, pero el camino es exactamente así.)\n\nMandanos tu logo y tu rubro:\
+ n👉 Escribí DEMO por WhatsApp al 097 096 996 (o por mensaje directo) y 
+ te armamos una demostración gratis\, con tu logo.\n\n#Wydan #PymesUruguay
+  #EmprendedoresUruguay #Rivera #Uruguay #Barraca
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Recordatorio
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:c6-preguntas@instagram.wydan
+DTSTAMP:20261028T191509Z
+DTSTART:20261123T223000Z
+DTEND:20261123T224500Z
+SUMMARY:📲 Instagram: publicar 11. Preguntas frecuentes (carrusel)
+DESCRIPTION:Archivos: Instagram-Wydan/imagenes/11-c6-preguntas/\n\nTEXTO PA
+ RA COPIAR:\n\nLo que siempre nos preguntan (y nuestras respuestas\, sin vu
+ eltas) 👇\n\n¿Hay que instalar algo? No.\n¿Anda en el celular? Sí.\n
+ ¿Cuánto cuesta? Depende de lo que necesites. Por eso primero la demo gra
+ tis y después un presupuesto sin compromiso.\n¿Cuánto demora? La demo\,
+  pocos días.\n\n¿Te quedó alguna duda? Dejala en los comentarios y te r
+ espondemos.\n👉 Escribí DEMO por WhatsApp al 097 096 996 (o por mensaje
+  directo) y te armamos una demostración gratis\, con tu logo.\n\n#Wydan #
+ PymesUruguay #EmprendedoresUruguay #Rivera #Uruguay #PreguntasFrecuentes
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Recordatorio
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:r6-5-mitos@instagram.wydan
+DTSTAMP:20261028T191509Z
+DTSTART:20261125T223000Z
+DTEND:20261125T224500Z
+SUMMARY:📲 Instagram: publicar 12. 5 mitos (reel)
+DESCRIPTION:Archivos: Instagram-Wydan/imagenes/12-r6-5-mitos/ + video Video
+ -Wydan/salida/5-mitos-vertical.mp4\n\nTEXTO PARA COPIAR:\n\n5 mitos sobre 
+ tener tu propia página de gestión 💥\n\n❌ «Es carísimo»\n❌ «Ha
+ y que instalar programas»\n❌ «Es complicado»\n❌ «Mi negocio es dis
+ tinto»\n❌ «Tarda meses»\n\nMirá cómo se rompe cada uno 👆\n\nYa n
+ o hay excusas:\n👉 Escribí DEMO por WhatsApp al 097 096 996 (o por mens
+ aje directo) y te armamos una demostración gratis\, con tu logo.\n\n#Wyda
+ n #PymesUruguay #EmprendedoresUruguay #Rivera #Uruguay #MitosYRealidades
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Recordatorio
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:t0@instagram.wydan
+DTSTAMP:20261028T191509Z
+DTSTART:20261028T130000Z
+DTEND:20261028T133000Z
+SUMMARY:📊 Instagram: Revisar las publicaciones y los videos
+DESCRIPTION:Mirar la vista previa entera y avisar qué cambiar.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Recordatorio
+TRIGGER:-PT0M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:t1@instagram.wydan
+DTSTAMP:20261028T191509Z
+DTSTART:20261029T130000Z
+DTEND:20261029T133000Z
+SUMMARY:✅ Instagram: Crear la cuenta de Instagram
+DESCRIPTION:Con wydan.solutions@gmail.com · usuario @wydansolutions · pas
+ arla a cuenta profesional → Empresa → Software.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Recordatorio
+TRIGGER:-PT0M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:t2@instagram.wydan
+DTSTAMP:20261028T191509Z
+DTSTART:20261029T130000Z
+DTEND:20261029T133000Z
+SUMMARY:✅ Instagram: Conectar Facebook y WhatsApp Business
+DESCRIPTION:Centro de cuentas: sumar la página de Facebook de Wydan. Agreg
+ ar el botón de WhatsApp (097 096 996). Sin esto no se puede hacer publici
+ dad.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Recordatorio
+TRIGGER:-PT0M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:t3@instagram.wydan
+DTSTAMP:20261028T191509Z
+DTSTART:20261030T130000Z
+DTEND:20261030T133000Z
+SUMMARY:✅ Instagram: Completar el perfil
+DESCRIPTION:Foto de perfil\, nombre «Wydan | Páginas de gestión a medida
+ »\, bio B y link a la web.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Recordatorio
+TRIGGER:-PT0M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:t4@instagram.wydan
+DTSTAMP:20261028T191509Z
+DTSTART:20261030T130000Z
+DTEND:20261030T133000Z
+SUMMARY:✅ Instagram: Armar las 5 historias destacadas
+DESCRIPTION:Subir una historia para cada una (Demos\, Cómo funciona\, Clie
+ ntes\, Preguntas\, Contacto)\, guardarla como destacada y ponerle su tapa.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Recordatorio
+TRIGGER:-PT0M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:t5@instagram.wydan
+DTSTAMP:20261028T191509Z
+DTSTART;VALUE=DATE:20261102
+DTEND;VALUE=DATE:20261103
+SUMMARY:⚠️ Instagram: Feriado (Día de los Difuntos): no se publica
+DESCRIPTION:Buen día para dejar programadas las publicaciones de la semana
+  en Meta Business Suite → Planificador.
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:t6@instagram.wydan
+DTSTAMP:20261028T191509Z
+DTSTART:20261103T230000Z
+DTEND:20261103T233000Z
+SUMMARY:✅ Instagram: Contarle a todos que arrancamos
+DESCRIPTION:Compartir el perfil en los estados de WhatsApp y pedirle a cono
+ cidos y clientes que nos sigan. Los primeros seguidores ayudan a que Insta
+ gram nos muestre.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Recordatorio
+TRIGGER:-PT0M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:t7@instagram.wydan
+DTSTAMP:20261028T191509Z
+DTSTART:20261109T130000Z
+DTEND:20261109T133000Z
+SUMMARY:📣 Instagram: Primera publicidad
+DESCRIPTION:Promocionar el reel que más gustó la primera semana. Objetivo
+ : mensajes por WhatsApp. Zona y presupuesto a definir (sugerido USD 3 a 5 
+ por día\, 7 días).
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Recordatorio
+TRIGGER:-PT0M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:t8@instagram.wydan
+DTSTAMP:20261028T191509Z
+DTSTART:20261113T130000Z
+DTEND:20261113T133000Z
+SUMMARY:📊 Instagram: Revisar la primera publicidad
+DESCRIPTION:Cuántos mensajes trajo y cuánto costó cada uno. Seguir\, cam
+ biar el video o cambiar la zona.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Recordatorio
+TRIGGER:-PT0M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:t9@instagram.wydan
+DTSTAMP:20261028T191509Z
+DTSTART:20261116T130000Z
+DTEND:20261116T133000Z
+SUMMARY:📣 Instagram: Segunda publicidad
+DESCRIPTION:Probar con el carrusel «Páginas que ya creamos»\, apuntado a
+  dueños de comercios y profesionales.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Recordatorio
+TRIGGER:-PT0M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:t10@instagram.wydan
+DTSTAMP:20261028T191509Z
+DTSTART:20261120T130000Z
+DTEND:20261120T133000Z
+SUMMARY:📊 Instagram: Revisión de mitad de mes
+DESCRIPTION:Qué publicación tuvo más alcance\, guardados y mensajes. Rep
+ etir lo que funcionó.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Recordatorio
+TRIGGER:-PT0M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:t11@instagram.wydan
+DTSTAMP:20261028T191509Z
+DTSTART:20261127T130000Z
+DTEND:20261127T133000Z
+SUMMARY:✅ Instagram: Armar el plan de diciembre
+DESCRIPTION:Idea: «Empezá 2027 con tu negocio ordenado» (fin de año\, c
+ ierre de caja y balances).
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Recordatorio
+TRIGGER:-PT0M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:t12@instagram.wydan
+DTSTAMP:20261028T191509Z
+DTSTART:20261130T130000Z
+DTEND:20261130T133000Z
+SUMMARY:📊 Instagram: Balance del primer mes
+DESCRIPTION:Seguidores\, mensajes\, demos pedidas y ventas. Con eso se ajus
+ ta el plan.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Recordatorio
+TRIGGER:-PT0M
+END:VALARM
+END:VEVENT
+END:VCALENDAR

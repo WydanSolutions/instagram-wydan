@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Instagram de Wydan · primer mes</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #14294A; --acero: #6E7C8C; --base: #F4F6F9; --blanco: #FFFFFF; --hoja: #2E6A9A;
+    --texto: #33445A; --linea: #DDE3EA; --aviso: #9A5B00; --aviso-fondo: #FFF4E0; --ok: #1F7A4A; --chispa: #5DB7F5;
+    --f-titulo: 'Montserrat', sans-serif; --f-texto: 'Inter', sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--base); color: var(--texto); font: 16px/1.5 var(--f-texto); }
+  .ancho { max-width: 1100px; margin: 0 auto; padding: 32px 16px 80px; }
+  h1 { font: 800 32px/1.15 var(--f-titulo); color: var(--navy); }
+  h2 { font: 800 24px/1.2 var(--f-titulo); color: var(--navy); margin: 48px 0 16px; }
+  .sub { color: var(--acero); margin-top: 6px; }
+
+  /* perfil simulado */
+  .arriba { display: grid; grid-template-columns: 400px 1fr; gap: 32px; margin-top: 28px; align-items: start; }
+  .telefono { background: var(--blanco); border-radius: 28px; border: 1px solid var(--linea); box-shadow: 0 20px 50px rgba(20,41,74,.12); overflow: hidden; }
+  .perfil { padding: 18px 16px 10px; }
+  .usuario { font-weight: 700; font-size: 17px; color: #111; margin-bottom: 14px; }
+  .fila-perfil { display: flex; align-items: center; gap: 22px; }
+  .fila-perfil img { width: 84px; height: 84px; border-radius: 50%; border: 1px solid var(--linea); }
+  .numeros { display: flex; gap: 18px; text-align: center; font-size: 13px; color: #333; }
+  .numeros b { display: block; font-size: 16px; color: #111; }
+  .nombre { font-weight: 700; font-size: 14px; color: #111; margin-top: 12px; }
+  .categoria { font-size: 13px; color: #8a8a8a; }
+  .bio { font-size: 14px; color: #111; white-space: pre-line; }
+  .link { font-size: 14px; color: #00376B; font-weight: 600; }
+  .botones { display: flex; gap: 6px; margin-top: 12px; }
+  .botones span { flex: 1; text-align: center; background: #EFEFEF; border-radius: 8px; padding: 7px 0; font-size: 13px; font-weight: 600; color: #111; }
+  .destacadas { display: flex; gap: 14px; padding: 14px 16px 12px; overflow-x: auto; scrollbar-width: none; }
+  .destacadas figure { text-align: center; font-size: 12px; color: #111; flex: none; width: 64px; }
+  .destacadas img { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; border: 2px solid var(--linea); padding: 2px; background: var(--blanco); }
+  .grilla { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; border-top: 1px solid var(--linea); }
+  .grilla a { position: relative; aspect-ratio: 3 / 4; display: block; overflow: hidden; background: #ddd; }
+  .grilla img { width: 100%; height: 100%; object-fit: cover; }
+  .grilla .marca { position: absolute; top: 6px; right: 6px; width: 18px; height: 18px; fill: #fff; filter: drop-shadow(0 0 2px rgba(0,0,0,.75)); }
+  .grilla .num { position: absolute; left: 6px; bottom: 6px; background: rgba(0,0,0,.55); color: #fff; font-size: 11px; font-weight: 700; padding: 1px 6px; border-radius: 9px; }
+
+  .resumen { display: flex; flex-direction: column; gap: 14px; }
+  .caja { background: var(--blanco); border: 1px solid var(--linea); border-radius: 16px; padding: 18px 20px; }
+  .caja h3 { font: 700 17px/1.3 var(--f-titulo); color: var(--navy); margin-bottom: 8px; }
+  .caja ul, .caja ol { padding-left: 20px; }
+  .caja li { margin: 4px 0; }
+  .caja.aviso { background: var(--aviso-fondo); border-color: #F1D29A; }
+  .caja.aviso h3 { color: var(--aviso); }
+
+  /* publicaciones */
+  .pub { background: var(--blanco); border: 1px solid var(--linea); border-radius: 20px; padding: 22px; margin-bottom: 22px; scroll-margin-top: 16px; }
+  .pub-cabeza { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; margin-bottom: 16px; }
+  .pub-cabeza .n { width: 38px; height: 38px; border-radius: 50%; background: var(--navy); color: var(--blanco); display: grid; place-items: center; font: 800 16px var(--f-titulo); }
+  .pub-cabeza h3 { font: 800 20px/1.2 var(--f-titulo); color: var(--navy); }
+  .etq { font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 4px 10px; border-radius: 99px; background: #E6EEF6; color: var(--hoja); }
+  .etq.cuando { background: #EEF0F3; color: var(--acero); }
+  .pub-cuerpo { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 22px; }
+  .tira { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 8px; scroll-snap-type: x mandatory; }
+  .tira img { height: 320px; border-radius: 10px; border: 1px solid var(--linea); scroll-snap-align: start; flex: none; }
+  .reel { display: flex; gap: 12px; }
+  .reel video, .reel img { height: 400px; border-radius: 12px; background: #000; border: 1px solid var(--linea); }
+  .pie-img { font-size: 13px; color: var(--acero); margin-top: 6px; }
+  .texto { background: var(--base); border-radius: 12px; padding: 14px 16px; white-space: pre-line; font-size: 14.5px; color: #1d2733; max-height: 400px; overflow: auto; }
+  .hashtags { color: #00376B; font-size: 14px; margin-top: 8px; }
+  .copiar { margin-top: 10px; background: var(--navy); color: var(--blanco); border: 0; border-radius: 10px; padding: 10px 16px; font: 600 14px var(--f-texto); cursor: pointer; }
+  .copiar.ok { background: var(--ok); }
+  .descargas { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+  .bajar { background: var(--blanco); color: var(--navy); border: 2px solid var(--navy); border-radius: 10px; padding: 8px 14px; font: 600 14px var(--f-texto); cursor: pointer; }
+  .bajar:hover { background: #E6EEF6; }
+  /* cronograma */
+  .cronograma { background: var(--blanco); border: 1px solid var(--linea); border-radius: 20px; padding: 8px 22px 18px; }
+  .cronograma .nota-crono { color: var(--acero); font-size: 14px; padding: 12px 0 4px; }
+  .semana-titulo { font: 700 13px var(--f-texto); letter-spacing: .1em; text-transform: uppercase; color: var(--acero); margin: 18px 0 6px; }
+  .tarea { display: grid; grid-template-columns: 96px 1fr auto; gap: 14px; align-items: start; padding: 12px 10px; border-top: 1px solid var(--linea); border-left: 4px solid transparent; }
+  .tarea.hoy { background: #EAF5FE; border-left-color: var(--chispa); border-radius: 8px; }
+  .tarea.hecha .que { opacity: .5; }
+  .tarea.hecha .que b { text-decoration: line-through; }
+  .fecha { font: 700 14px/1.3 var(--f-texto); color: var(--navy); text-transform: capitalize; }
+  .fecha small { display: block; font-weight: 500; color: var(--acero); text-transform: none; }
+  .que b { color: var(--navy); font-size: 15px; }
+  .que p { color: var(--texto); font-size: 14px; margin-top: 2px; }
+  .que a { color: var(--hoja); font-weight: 600; }
+  .tipo { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 2px 8px; border-radius: 99px; margin-right: 6px; vertical-align: 2px; }
+  .tipo.publicacion { background: var(--navy); color: var(--blanco); }
+  .tipo.tarea { background: #E6EEF6; color: var(--hoja); }
+  .tipo.publicidad { background: #FFF1D6; color: #8A5A00; }
+  .tipo.revision { background: #EFE8FA; color: #5B3B9A; }
+  .tipo.aviso { background: #EEF0F3; color: var(--acero); }
+  .marca-hoy { font-size: 11px; font-weight: 800; color: var(--blanco); background: var(--chispa); border-radius: 99px; padding: 2px 8px; margin-left: 6px; }
+  .tarea input { width: 22px; height: 22px; accent-color: var(--ok); cursor: pointer; margin-top: 2px; }
+  @media (max-width: 560px) { .tarea { grid-template-columns: 70px 1fr auto; gap: 10px; padding: 12px 4px; } }
+
+  @media (max-width: 860px) {
+    .arriba, .pub-cuerpo { grid-template-columns: 1fr; }
+    .telefono { max-width: 400px; margin: 0 auto; width: 100%; }
+    .tira img { height: 260px; }
+    .reel video, .reel img { height: 340px; }
+    .reel img { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="ancho">
+  <h1>Instagram de Wydan · primer mes</h1>
+  <p class="sub">12 publicaciones (6 reels y 6 carruseles), las tapas de las destacadas y la foto de perfil. Tocá una imagen de la cuadrícula para ir a su texto.</p>
+
+  <div class="arriba">
+    <div class="telefono">
+      <div class="perfil">
+        <div class="usuario">wydansolutions</div>
+        <div class="fila-perfil">
+          <img src="imagenes/perfil/foto-de-perfil.png" alt="">
+          <div class="numeros"><div><b>12</b>publicaciones</div><div><b>—</b>seguidores</div><div><b>—</b>seguidos</div></div>
+        </div>
+        <div class="nombre">Wydan | Páginas de gestión a medida</div>
+        <div class="categoria">Software</div>
+        <div class="bio">Chau planillas y papelitos 👋
+Tu negocio ordenado en una página hecha para vos
+Desde el celular o la compu
+👇 Demo gratis: escribí DEMO</div>
+        <div class="link">🔗 Web de Wydan</div>
+        <div class="botones"><span>Seguir</span><span>Mensaje</span><span>WhatsApp</span></div>
+      </div>
+      <div class="destacadas" id="destacadas"></div>
+      <div class="descargas" style="padding: 0 16px 12px"><button class="bajar" data-bajar="perfil">⬇ Foto de perfil y destacadas</button></div>
+      <div class="grilla" id="grilla"></div>
+    </div>
+
+    <div class="resumen">
+      <div class="caja">
+        <h3>Cuándo se publica cada cosa</h3>
+        <ul>
+          <li><b>Lanzamiento, martes 3/11:</b> las publicaciones 1, 2 y 3 juntas, para que el perfil no arranque vacío.</li>
+          <li><b>Después:</b> lunes, miércoles y viernes, intercalando un reel y un carrusel, hasta el 25/11.</li>
+          <li><b>Horario:</b> 19:30 h, cuando más gente mira Instagram.</li>
+          <li><b>Historias:</b> todos los días, aunque sea una (ideas abajo).</li>
+        </ul>
+        <p style="margin-top:8px"><a href="#cronograma">Ver el cronograma día por día ↓</a></p>
+      </div>
+      <div class="caja">
+        <h3>Cuándo empezar la publicidad</h3>
+        <p>El <b>lunes 9/11</b>, cuando el perfil ya tenga 4 publicaciones. Promocionamos el reel que más funcionó la primera semana, con el objetivo de <b>mensajes por WhatsApp</b>.</p>
+      </div>
+      <div class="caja">
+        <h3>✓ Los reels están listos</h3>
+        <p>Los 6 videos ya tienen la <b>voz definitiva</b>, generada con el plan pago de ElevenLabs (28/10/2026), así que se pueden publicar y usar en publicidad.</p>
+      </div>
+      <div class="caja">
+        <h3>Historias: ideas para todos los días</h3>
+        <ul>
+          <li>Compartir cada publicación nueva en historias, con el sticker «Nueva publicación».</li>
+          <li>Encuesta: «¿Dónde anotás los turnos? Cuaderno · Excel · WhatsApp · La cabeza».</li>
+          <li>Cajita de preguntas: «¿Qué te complica más de tu negocio?».</li>
+          <li>Pedacitos de una demo grabados con el celular (15 s), con el texto «¿Te imaginás la tuya?».</li>
+          <li>Detrás de escena: armando una demo (sin datos reales de clientes).</li>
+          <li>Sticker de enlace a WhatsApp con «Escribí DEMO».</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="cronograma">Cronograma</h2>
+  <div class="cronograma" id="lista-cronograma"></div>
+
+  <h2>Las 12 publicaciones, en orden</h2>
+  <div id="publicaciones"></div>
+</div>
+
+<script src="publicaciones.js?v=202610281919"></script>
+<script>
+  const VIDEOS = 'videos/';
+  const carpeta = p => `imagenes/${String(p.n).padStart(2, '0')}-${p.id}/`;
+  const tapa = p => p.tipo === 'carrusel' ? `${carpeta(p)}${p.id}-01.png` : `${carpeta(p)}${p.id}-portada.png`;
+  const ICONO_REEL = '<svg class="marca" viewBox="0 0 24 24"><path d="M4 3h16a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm5 5v8l7-4z"/></svg>';
+  const ICONO_CARRUSEL = '<svg class="marca" viewBox="0 0 24 24"><path d="M7 3h13a1 1 0 0 1 1 1v13h-2V5H7zM3 7h13a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1z"/></svg>';
+  const escapar = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
+
+  document.getElementById('destacadas').innerHTML = DESTACADAS.map(d =>
+    `<figure><img src="imagenes/destacadas/${d.id}.png" alt=""><figcaption>${d.nombre}</figcaption></figure>`).join('');
+
+  // En Instagram lo último que se publica queda arriba a la izquierda
+  document.getElementById('grilla').innerHTML = [...PUBLICACIONES].reverse().map(p =>
+    `<a href="#${p.id}"><img src="${tapa(p)}" alt="">${p.tipo === 'reel' ? ICONO_REEL : ICONO_CARRUSEL}<span class="num">${p.n}</span></a>`).join('');
+
+  document.getElementById('publicaciones').innerHTML = PUBLICACIONES.map(p => {
+    const visual = p.tipo === 'carrusel'
+      ? `<div class="tira">${p.laminas.map((_, i) => `<img src="${carpeta(p)}${p.id}-${String(i + 1).padStart(2, '0')}.png" alt="" loading="lazy">`).join('')}</div>
+         <p class="pie-img">${p.laminas.length} imágenes · deslizá para verlas · carpeta <code>${carpeta(p)}</code></p>`
+      : `<div class="reel"><video src="${VIDEOS}${p.video}" controls preload="none" poster="${tapa(p)}"></video><img src="${tapa(p)}" alt=""></div>
+         <p class="pie-img">Video: <code>videos/${p.video}</code> (${p.duracion}) · portada: <code>${tapa(p)}</code></p>`;
+    return `<article class="pub" id="${p.id}">
+      <div class="pub-cabeza"><span class="n">${p.n}</span><h3>${p.titulo}</h3>
+        <span class="etq">${p.tipo === 'reel' ? 'Reel' : 'Carrusel'}</span><span class="etq cuando">${p.cuando}</span></div>
+      <div class="pub-cuerpo">
+        <div>${visual}</div>
+        <div><div class="texto">${escapar(p.texto)}</div><div class="hashtags">${p.hashtags}</div>
+          <button class="copiar" data-id="${p.id}">Copiar texto y hashtags</button>
+          <div class="descargas">${p.tipo === 'carrusel'
+            ? `<button class="bajar" data-bajar="${p.id}">⬇ Descargar las ${p.laminas.length} imágenes</button>`
+            : `<button class="bajar" data-bajar="${p.id}" data-que="video">⬇ Descargar el video</button><button class="bajar" data-bajar="${p.id}" data-que="portada">⬇ Descargar la portada</button>`}</div></div>
+      </div></article>`;
+  }).join('');
+
+  // Cronograma: tareas + publicaciones, agrupadas por semana (de lunes a domingo).
+  // Lo marcado como hecho se guarda solo en este navegador.
+  (function cronograma() {
+    const CLAVE = 'wydan-instagram-hechos';
+    let hechos = {};
+    try { hechos = JSON.parse(localStorage.getItem(CLAVE)) || {}; } catch { hechos = {}; }
+    const d = new Date();
+    const hoy = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+    const fechaDe = iso => new Date(iso + 'T12:00');
+    const lunesDe = iso => { const f = fechaDe(iso); f.setDate(f.getDate() - ((f.getDay() + 6) % 7)); return f; };
+    const corta = f => `${f.getDate()}/${f.getMonth() + 1}`;
+    const items = [
+      ...CRONOGRAMA.map((t, k) => ({ ...t, clave: `t${k}`, orden: t.hora ? '0' + t.hora : '1' })),
+      ...PUBLICACIONES.map(p => ({ fecha: p.fecha, tipo: 'publicacion', clave: p.id, orden: '0' + p.hora,
+        titulo: `Publicar ${p.n}. ${p.titulo}`, detalle: `${p.tipo === 'reel' ? 'Reel' : 'Carrusel'} a las ${p.hora} h · <a href="#${p.id}">ver imágenes y texto</a>` })),
+    ].sort((a, b) => (a.fecha + a.orden).localeCompare(b.fecha + b.orden));
+    const NOMBRES = { publicacion: 'Publicar', tarea: 'Tarea', publicidad: 'Publicidad', revision: 'Revisar', aviso: 'Ojo' };
+    let semana = '', html = '<p class="nota-crono">Además, todos los días: al menos una historia. Tocá la casilla cuando algo esté hecho.</p>';
+    for (const t of items) {
+      const lunes = corta(lunesDe(t.fecha));
+      if (lunes !== semana) { semana = lunes; html += `<div class="semana-titulo">Semana del lunes ${lunes}</div>`; }
+      const f = fechaDe(t.fecha);
+      html += `<div class="tarea ${t.fecha === hoy ? 'hoy' : ''} ${hechos[t.clave] ? 'hecha' : ''}">
+        <div class="fecha">${f.toLocaleDateString('es-UY', { weekday: 'long' })}<small>${corta(f)}${t.fecha === hoy ? '<span class="marca-hoy">HOY</span>' : ''}</small></div>
+        <div class="que"><span class="tipo ${t.tipo}">${NOMBRES[t.tipo]}</span><b>${t.titulo}</b><p>${t.detalle}</p></div>
+        <input type="checkbox" data-clave="${t.clave}" ${hechos[t.clave] ? 'checked' : ''} aria-label="Hecho"></div>`;
+    }
+    const caja = document.getElementById('lista-cronograma');
+    caja.innerHTML = html;
+    caja.addEventListener('change', e => {
+      const c = e.target.dataset.clave;
+      if (!c) return;
+      hechos[c] = e.target.checked;
+      e.target.closest('.tarea').classList.toggle('hecha', e.target.checked);
+      try { localStorage.setItem(CLAVE, JSON.stringify(hechos)); } catch { /* sin almacenamiento: no se recuerda */ }
+    });
+  })();
+
+  // Descargas: una por archivo, con un ratito entre cada una (el navegador puede pedir permiso la primera vez)
+  async function bajar(urls) {
+    for (const url of urls) {
+      const a = document.createElement('a');
+      a.href = url; a.download = url.split('/').pop();
+      document.body.appendChild(a); a.click(); a.remove();
+      await new Promise(r => setTimeout(r, 350));
+    }
+  }
+  document.addEventListener('click', e => {
+    const b = e.target.closest('.bajar');
+    if (!b) return;
+    if (b.dataset.bajar === 'perfil') {
+      return bajar(['imagenes/perfil/foto-de-perfil.png', ...DESTACADAS.map(d => `imagenes/destacadas/${d.id}.png`)]);
+    }
+    const p = PUBLICACIONES.find(x => x.id === b.dataset.bajar);
+    if (p.tipo === 'carrusel') bajar(p.laminas.map((_, i) => `${carpeta(p)}${p.id}-${String(i + 1).padStart(2, '0')}.png`));
+    else bajar([b.dataset.que === 'video' ? VIDEOS + p.video : tapa(p)]);
+  });
+
+  document.addEventListener('click', async e => {
+    const b = e.target.closest('.copiar');
+    if (!b) return;
+    const p = PUBLICACIONES.find(x => x.id === b.dataset.id);
+    const texto = `${p.texto}\n\n${p.hashtags}`;
+    try { await navigator.clipboard.writeText(texto); }
+    catch { const t = document.createElement('textarea'); t.value = texto; document.body.appendChild(t); t.select(); document.execCommand('copy'); t.remove(); }
+    b.textContent = '✓ Copiado'; b.classList.add('ok');
+    setTimeout(() => { b.textContent = 'Copiar texto y hashtags'; b.classList.remove('ok'); }, 1800);
+  });
+</script>
+</body>
+</html>
