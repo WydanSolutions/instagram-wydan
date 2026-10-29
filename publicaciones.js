@@ -296,14 +296,27 @@ const HISTORIAS = {
   ],
   'd3-clientes': [
     { tipo: 'h-portada', foto: 'fotos/escritorio-ordenado.jpg', pos: 'center', sticker: 'Testimonios reales', chip: 'Clientes', titulo: 'Lo que dicen <em>quienes ya la usan</em>', bajada: 'Tocá para leerlos →' },
-    // Capturas originales de WhatsApp de clientes (23/9 al 29/10/2026), recortadas a SOLO los globos del cliente en
-    // img/capturas/ (sin nombres; el pueblo de la colega tapado en azul). Las capturas enteras no se guardan acá.
-    // w = ancho del recorte en px (se agranda hasta el doble, sin pasar de 920).
-    { tipo: 'h-capturas', chip: 'Mensajes que nos llegan', titulo: '«Lo uso <em>a diario y a cada rato</em>»', capturas: [{ id: 'gracias', w: 735 }, { id: 'todos-dias', w: 450 }] },
-    { tipo: 'h-capturas', chip: 'Mensajes que nos llegan', titulo: '«Todo lo q necesito <em>en 1 solo</em>»', capturas: [{ id: 'muy-bueno', w: 520 }, { id: 'vencimiento', w: 725 }] },
-    { tipo: 'h-capturas', chip: 'Mensajes que nos llegan', titulo: '«Tener toda la información ahí <em>me salvó</em>»', capturas: [{ id: 'fuera', w: 725 }] },
-    { tipo: 'h-capturas', chip: 'Mensajes que nos llegan', titulo: '«Muchas gracias, <em>quedó perfecto!!!</em>»', capturas: [{ id: 'feliz', w: 380 }, { id: 'perfecto', w: 440 }] },
-    { tipo: 'h-capturas', chip: 'Mensajes que nos llegan', titulo: '«Una colega amiga <em>se va a poner en contacto</em>»', capturas: [{ id: 'colega', w: 720 }] },
+    // Mensajes reales de clientes por WhatsApp (capturas del 23/9 al 29/10/2026), pasados a texto y dibujados como
+    // pantalla de WhatsApp (elegido por la usuaria: se leen mejor que las capturas de la compu). Solo lo que escribió
+    // el cliente, sin nombres, números ni fotos; cada chat es una persona distinta. Cada mensaje: [hora, texto].
+    { tipo: 'h-chat', chip: 'Mensajes que nos llegan', titulo: 'La usan <em>todos los días</em>', grupos: [
+      { mensajes: [['15:33', 'Hola, ¿cómo estás? Bueno nada, paso para agradecer la mano que me dieron con la página, la verdad que no sabía que estaba tan desordenada.. jajaja'], ['15:33', 'Fuera de joda, la verdad muchas gracias.. lo uso a diario y a cada rato.']] },
+      { mensajes: [['10:15', 'todos los días estoy haciendo algo en él']], corazon: true },
+    ] },
+    { tipo: 'h-chat', chip: 'Mensajes que nos llegan', titulo: 'Todo <em>en un solo lugar</em>', grupos: [
+      { mensajes: [['18:42', 'No, no. Muy bueno. Todo lo q necesito en 1 solo']], corazon: true },
+      { mensajes: [['10:16', 'en estos días de vencimiento, cuando hago el boleto de pago, ya voy cargando la info de cada cliente y agregando su línea en las pestañas correspondientes']] },
+    ] },
+    { tipo: 'h-chat', chip: 'Mensajes que nos llegan', titulo: 'Su negocio, <em>esté donde esté</em>', grupos: [
+      { mensajes: [['10:18', 'Me viene siendo bien útil'], ['10:18', 'La semana pasada estuve un par de días fuera de Rivera, y tener toda la información ahí me salvó']] },
+    ] },
+    { tipo: 'h-chat', chip: 'Mensajes que nos llegan', titulo: 'Cuando reciben <em>su página</em>', grupos: [
+      { mensajes: [['15:46', 'este sería el instalador del cel?'], ['15:46', 'ay estoy felizzzzzz']], corazon: true },
+      { mensajes: [['9:51', 'Buenas, muchas gracias, ¡quedó perfecto!!!']], corazon: true },
+    ] },
+    { tipo: 'h-chat', chip: 'Mensajes que nos llegan', titulo: 'Y nos <em>recomiendan</em> 🙌', grupos: [
+      { mensajes: [['12:30', 'Y una colega amiga […] se va a poner en contacto contigo']], corazon: true },
+    ] },
     { tipo: 'h-testimonio', rubro: 'Taller de camiones', ciudad: 'Rivera',
       texto: 'Desde que comenzamos a utilizar el aplicativo, la forma de gestionar el taller ha mejorado muchísimo. […] Estamos muy conformes y contentos con el resultado. […] Sin dudas, recomendamos esta herramienta.' },
     { tipo: 'h-testimonio', rubro: 'Estudio Contable W. Machado', ciudad: 'Rivera',
