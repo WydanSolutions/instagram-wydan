@@ -275,8 +275,9 @@ const DESTACADAS = [
 ];
 
 // Historias que van adentro de cada destacada (1080 × 1920). Arriba y abajo Instagram tapa con sus botones:
-// el contenido va entre los 250 y los 1580 px. «Clientes» queda vacía hasta tener testimonios reales
-// (nunca inventarlos).
+// el contenido va entre los 250 y los 1580 px.
+// «Clientes»: SOLO testimonios reales (los publicados en wydansolutions.com, 29/10/2026), recortados con frases
+// textuales y […] donde se saltea; solo rubro y ciudad, sin fotos de personas. Nunca inventarlos.
 const HISTORIAS = {
   'd1-demos': [
     { tipo: 'h-portada', foto: 'fotos/juntos-laptop.jpg', pos: '45% center', sticker: 'Demos', chip: 'Páginas que ya creamos', titulo: 'Una página <em>distinta</em> para cada negocio', bajada: 'Tocá para ver algunas →' },
@@ -293,7 +294,16 @@ const HISTORIAS = {
     { tipo: 'h-paso', num: 4, foto: 'fotos/celular-local.jpg', pos: 'center 30%', titulo: 'La usás todos los días', cuerpo: 'Desde la compu, el celular o la tablet. Y si necesitás una mano, estamos.' },
     { tipo: 'h-cta', foto: 'fotos/mostrador-celular.jpg', titulo: 'Empezá por <em>el paso 1</em>', cuerpo: 'Escribinos DEMO y te armamos la tuya gratis, con tu logo.' },
   ],
-  'd3-clientes': [],
+  'd3-clientes': [
+    { tipo: 'h-portada', foto: 'fotos/escritorio-ordenado.jpg', pos: 'center', sticker: 'Testimonios reales', chip: 'Clientes', titulo: 'Lo que dicen <em>quienes ya la usan</em>', bajada: 'Tocá para leerlos →' },
+    { tipo: 'h-testimonio', rubro: 'Taller de camiones', ciudad: 'Rivera',
+      texto: 'Desde que comenzamos a utilizar el aplicativo, la forma de gestionar el taller ha mejorado muchísimo. […] Estamos muy conformes y contentos con el resultado. […] Sin dudas, recomendamos esta herramienta.' },
+    { tipo: 'h-testimonio', rubro: 'Estudio Contable W. Machado', ciudad: 'Rivera',
+      texto: 'Hay un antes y un después de la existencia de esta herramienta. […] Logramos cubrir esos pequeños obstáculos, quedando más eficientes frente al cliente. ¿Que si lo recomiendo? Claro que sí, súper recomiendo.' },
+    { tipo: 'h-testimonio', rubro: 'Estudio contable', ciudad: 'Rivera',
+      texto: 'Excelente sistema para seguimiento de tareas y clientes. […] Es ideal para saber exactamente el estado de las tareas de cada cliente y centralizar toda su información y honorarios en un solo lugar.' },
+    { tipo: 'h-cta', foto: 'fotos/mostrador-celular.jpg', titulo: '¿Querés <em>la tuya</em>?', cuerpo: 'Te armamos una demo gratis, con tu logo.' },
+  ],
   'd4-preguntas': [
     { tipo: 'h-portada', foto: 'fotos/duda.jpg', pos: '45% 25%', sticker: 'Sin vueltas', chip: 'Preguntas frecuentes', titulo: 'Lo que siempre <em>nos preguntan</em>', bajada: 'Tocá para ver las respuestas →' },
     { tipo: 'h-pregunta', pregunta: '¿Hay que instalar algo?', respuesta: 'No. Se abre desde el navegador, como cualquier página. Entrás con tu usuario y tu contraseña.' },
@@ -315,7 +325,7 @@ const CRONOGRAMA = [
   { fecha: '2026-10-29', tipo: 'tarea', titulo: 'Crear la cuenta de Instagram', detalle: 'Con wydan.solutions@gmail.com · usuario @wydan.solutions · pasarla a cuenta profesional → Empresa → categoría «Empresa de software».' },
   { fecha: '2026-10-29', tipo: 'tarea', titulo: 'Conectar Facebook y WhatsApp Business', detalle: 'Centro de cuentas: sumar la página de Facebook de Wydan. Agregar el botón de WhatsApp (097 096 996). Sin esto no se puede hacer publicidad.' },
   { fecha: '2026-10-30', tipo: 'tarea', titulo: 'Completar el perfil', detalle: 'Foto de perfil, nombre «Wydan | Páginas de gestión», categoría «Empresa de software», bio B y link a la web.' },
-  { fecha: '2026-10-30', tipo: 'tarea', titulo: 'Armar las historias destacadas', detalle: 'Demos (6), Cómo funciona (5), Preguntas (7) y Contacto (1): subirlas en orden, destacarlas y ponerles su tapa. Están en la vista previa, sección «Historias destacadas». Clientes queda para cuando haya testimonios reales.' },
+  { fecha: '2026-10-30', tipo: 'tarea', titulo: 'Armar las historias destacadas', detalle: 'Crearlas al revés (Contacto → Preguntas → Clientes → Cómo funciona → Demos). Demos 6, Cómo funciona 5, Clientes 5 (testimonios reales), Preguntas 7 y Contacto 1. Están en la vista previa, sección «Historias destacadas».' },
   { fecha: '2026-11-02', tipo: 'aviso', titulo: 'Feriado (Día de los Difuntos): no se publica', detalle: 'Buen día para dejar programadas las publicaciones de la semana en Meta Business Suite → Planificador.' },
   { fecha: '2026-11-03', hora: '20:00', tipo: 'tarea', titulo: 'Contarle a todos que arrancamos', detalle: 'Compartir el perfil en los estados de WhatsApp y pedirle a conocidos y clientes que nos sigan. Los primeros seguidores ayudan a que Instagram nos muestre.' },
   { fecha: '2026-11-09', tipo: 'publicidad', titulo: 'Primera publicidad', detalle: 'Promocionar el reel que más gustó la primera semana. Objetivo: mensajes por WhatsApp. Zona y presupuesto a definir (sugerido USD 3 a 5 por día, 7 días).' },
