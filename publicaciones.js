@@ -6,6 +6,11 @@
 // pos: qué parte de la foto se ve (como background-position). sticker: la etiqueta inclinada de la portada.
 
 const WHATSAPP = '097 096 996';
+// Los dos WhatsApp de Wydan (los mismos de la página comercial, Wydan-Web). WHATSAPP es el que va en los botones.
+const CONTACTOS = [
+  { nombre: 'Wendy', numero: '097 096 996' },
+  { nombre: 'Daniela', numero: '092 868 219' },
+];
 
 const HASHTAGS = '#Wydan #PymesUruguay #EmprendedoresUruguay #Rivera #Uruguay';
 
@@ -317,4 +322,4 @@ const CRONOGRAMA = [
   { fecha: '2026-11-30', tipo: 'revision', titulo: 'Balance del primer mes', detalle: 'Seguidores, mensajes, demos pedidas y ventas. Con eso se ajusta el plan.' },
 ];
 
-if (typeof module !== 'undefined') module.exports = { PUBLICACIONES, DESTACADAS, HISTORIAS, CRONOGRAMA, WHATSAPP };
+if (typeof module !== 'undefined') module.exports = { PUBLICACIONES, DESTACADAS, HISTORIAS, CRONOGRAMA, WHATSAPP, CONTACTOS };
