@@ -13,7 +13,12 @@
     --f-titulo: 'Montserrat', sans-serif; --f-texto: 'Inter', sans-serif;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: var(--base); color: var(--texto); font: 16px/1.5 var(--f-texto); }
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  body { background: var(--base); color: var(--texto); font: 16px/1.5 var(--f-texto); overflow-x: hidden; }
+  /* que nada estire la página más que la pantalla (en el iPhone la achicaba entera) */
+  .pub-cuerpo > *, .arriba > *, .pub { min-width: 0; }
+  .tira { max-width: 100%; }
+  code { overflow-wrap: anywhere; }
   .ancho { max-width: 1100px; margin: 0 auto; padding: 32px 16px 80px; }
   h1 { font: 800 32px/1.15 var(--f-titulo); color: var(--navy); }
   h2 { font: 800 24px/1.2 var(--f-titulo); color: var(--navy); margin: 48px 0 16px; }
@@ -102,7 +107,7 @@
   }
 
   @media (max-width: 860px) {
-    .arriba, .pub-cuerpo { grid-template-columns: 1fr; }
+    .arriba, .pub-cuerpo { grid-template-columns: minmax(0, 1fr); }
     .telefono { max-width: 400px; margin: 0 auto; width: 100%; }
     .tira img { height: 260px; }
     .reel video, .reel img { height: 340px; }
@@ -190,7 +195,7 @@ Tu negocio ordenado en una página hecha para vos
   <div id="publicaciones"></div>
 </div>
 
-<script src="publicaciones.js?v=202610291852"></script>
+<script src="publicaciones.js?v=202610291925"></script>
 <script>
   const VIDEOS = 'videos/';
   const carpeta = p => `imagenes/${String(p.n).padStart(2, '0')}-${p.id}/`;
