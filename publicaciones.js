@@ -269,9 +269,9 @@ const DESTACADAS = [
 // acá van las tareas que no son publicar. tipo: tarea · publicidad · revision · aviso
 const CRONOGRAMA = [
   { fecha: '2026-10-28', tipo: 'revision', titulo: 'Revisar las publicaciones y los videos', detalle: 'Mirar la vista previa entera y avisar qué cambiar.' },
-  { fecha: '2026-10-29', tipo: 'tarea', titulo: 'Crear la cuenta de Instagram', detalle: 'Con wydan.solutions@gmail.com · usuario @wydansolutions · pasarla a cuenta profesional → Empresa → Software.' },
+  { fecha: '2026-10-29', tipo: 'tarea', titulo: 'Crear la cuenta de Instagram', detalle: 'Con wydan.solutions@gmail.com · usuario @wydansolutions · pasarla a cuenta profesional → Empresa → categoría «Empresa de software».' },
   { fecha: '2026-10-29', tipo: 'tarea', titulo: 'Conectar Facebook y WhatsApp Business', detalle: 'Centro de cuentas: sumar la página de Facebook de Wydan. Agregar el botón de WhatsApp (097 096 996). Sin esto no se puede hacer publicidad.' },
-  { fecha: '2026-10-30', tipo: 'tarea', titulo: 'Completar el perfil', detalle: 'Foto de perfil, nombre «Wydan | Páginas de gestión a medida», bio B y link a la web.' },
+  { fecha: '2026-10-30', tipo: 'tarea', titulo: 'Completar el perfil', detalle: 'Foto de perfil, nombre «Wydan | Páginas de gestión», categoría «Empresa de software», bio B y link a la web.' },
   { fecha: '2026-10-30', tipo: 'tarea', titulo: 'Armar las 5 historias destacadas', detalle: 'Subir una historia para cada una (Demos, Cómo funciona, Clientes, Preguntas, Contacto), guardarla como destacada y ponerle su tapa.' },
   { fecha: '2026-11-02', tipo: 'aviso', titulo: 'Feriado (Día de los Difuntos): no se publica', detalle: 'Buen día para dejar programadas las publicaciones de la semana en Meta Business Suite → Planificador.' },
   { fecha: '2026-11-03', hora: '20:00', tipo: 'tarea', titulo: 'Contarle a todos que arrancamos', detalle: 'Compartir el perfil en los estados de WhatsApp y pedirle a conocidos y clientes que nos sigan. Los primeros seguidores ayudan a que Instagram nos muestre.' },
