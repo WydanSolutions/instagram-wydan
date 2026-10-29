@@ -299,11 +299,11 @@ const HISTORIAS = {
     // Capturas originales de WhatsApp de clientes (23/9 al 29/10/2026), recortadas a SOLO los globos del cliente en
     // img/capturas/ (sin nombres; el pueblo de la colega tapado en azul). Las capturas enteras no se guardan acá.
     // w = ancho del recorte en px (se agranda hasta el doble, sin pasar de 920).
-    { tipo: 'h-capturas', chip: 'Mensajes que nos llegan', titulo: 'La usan <em>todos los días</em>', capturas: [{ id: 'gracias', w: 735 }, { id: 'todos-dias', w: 450 }] },
-    { tipo: 'h-capturas', chip: 'Mensajes que nos llegan', titulo: 'Todo <em>en un solo lugar</em>', capturas: [{ id: 'muy-bueno', w: 520 }, { id: 'vencimiento', w: 725 }] },
-    { tipo: 'h-capturas', chip: 'Mensajes que nos llegan', titulo: 'Su negocio, <em>esté donde esté</em>', capturas: [{ id: 'fuera', w: 725 }] },
-    { tipo: 'h-capturas', chip: 'Mensajes que nos llegan', titulo: 'Cuando reciben <em>su página</em>', capturas: [{ id: 'feliz', w: 380 }, { id: 'perfecto', w: 440 }] },
-    { tipo: 'h-capturas', chip: 'Mensajes que nos llegan', titulo: 'Y nos <em>recomiendan</em> 🙌', capturas: [{ id: 'colega', w: 720 }] },
+    { tipo: 'h-capturas', chip: 'Mensajes que nos llegan', titulo: '«Lo uso <em>a diario y a cada rato</em>»', capturas: [{ id: 'gracias', w: 735 }, { id: 'todos-dias', w: 450 }] },
+    { tipo: 'h-capturas', chip: 'Mensajes que nos llegan', titulo: '«Todo lo q necesito <em>en 1 solo</em>»', capturas: [{ id: 'muy-bueno', w: 520 }, { id: 'vencimiento', w: 725 }] },
+    { tipo: 'h-capturas', chip: 'Mensajes que nos llegan', titulo: '«Tener toda la información ahí <em>me salvó</em>»', capturas: [{ id: 'fuera', w: 725 }] },
+    { tipo: 'h-capturas', chip: 'Mensajes que nos llegan', titulo: '«Muchas gracias, <em>quedó perfecto!!!</em>»', capturas: [{ id: 'feliz', w: 380 }, { id: 'perfecto', w: 440 }] },
+    { tipo: 'h-capturas', chip: 'Mensajes que nos llegan', titulo: '«Una colega amiga <em>se va a poner en contacto</em>»', capturas: [{ id: 'colega', w: 720 }] },
     { tipo: 'h-testimonio', rubro: 'Taller de camiones', ciudad: 'Rivera',
       texto: 'Desde que comenzamos a utilizar el aplicativo, la forma de gestionar el taller ha mejorado muchísimo. […] Estamos muy conformes y contentos con el resultado. […] Sin dudas, recomendamos esta herramienta.' },
     { tipo: 'h-testimonio', rubro: 'Estudio Contable W. Machado', ciudad: 'Rivera',
