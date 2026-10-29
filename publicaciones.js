@@ -269,7 +269,7 @@ const DESTACADAS = [
 // acá van las tareas que no son publicar. tipo: tarea · publicidad · revision · aviso
 const CRONOGRAMA = [
   { fecha: '2026-10-28', tipo: 'revision', titulo: 'Revisar las publicaciones y los videos', detalle: 'Mirar la vista previa entera y avisar qué cambiar.' },
-  { fecha: '2026-10-29', tipo: 'tarea', titulo: 'Crear la cuenta de Instagram', detalle: 'Con wydan.solutions@gmail.com · usuario @wydansolutions · pasarla a cuenta profesional → Empresa → categoría «Empresa de software».' },
+  { fecha: '2026-10-29', tipo: 'tarea', titulo: 'Crear la cuenta de Instagram', detalle: 'Con wydan.solutions@gmail.com · usuario @wydan.solutions · pasarla a cuenta profesional → Empresa → categoría «Empresa de software».' },
   { fecha: '2026-10-29', tipo: 'tarea', titulo: 'Conectar Facebook y WhatsApp Business', detalle: 'Centro de cuentas: sumar la página de Facebook de Wydan. Agregar el botón de WhatsApp (097 096 996). Sin esto no se puede hacer publicidad.' },
   { fecha: '2026-10-30', tipo: 'tarea', titulo: 'Completar el perfil', detalle: 'Foto de perfil, nombre «Wydan | Páginas de gestión», categoría «Empresa de software», bio B y link a la web.' },
   { fecha: '2026-10-30', tipo: 'tarea', titulo: 'Armar las 5 historias destacadas', detalle: 'Subir una historia para cada una (Demos, Cómo funciona, Clientes, Preguntas, Contacto), guardarla como destacada y ponerle su tapa.' },
