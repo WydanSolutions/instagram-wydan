@@ -5,8 +5,9 @@
 // foto: archivo dentro de img/ (fotos/… de Pexels, ver img/fotos/fuentes.json; paginas/… = captura de una demo).
 // pos: qué parte de la foto se ve (como background-position). sticker: la etiqueta inclinada de la portada.
 
+// Los dos WhatsApp de Wydan (los mismos de la página comercial, Wydan-Web). Van los dos en textos e imágenes
+// (decisión de la usuaria, 29/10/2026). WHATSAPP queda para el enlace de la bio y el sticker de las historias.
 const WHATSAPP = '097 096 996';
-// Los dos WhatsApp de Wydan (los mismos de la página comercial, Wydan-Web). WHATSAPP es el que va en los botones.
 const CONTACTOS = [
   { nombre: 'Wendy', numero: '097 096 996' },
   { nombre: 'Daniela', numero: '092 868 219' },
@@ -14,7 +15,10 @@ const CONTACTOS = [
 
 const HASHTAGS = '#Wydan #PymesUruguay #EmprendedoresUruguay #Rivera #Uruguay';
 
-const CIERRE = `👉 Escribí DEMO por WhatsApp al ${WHATSAPP} (o por mensaje directo) y te armamos una demostración gratis, con tu logo.`;
+const CIERRE = `👉 Escribí DEMO por WhatsApp y te armamos una demostración gratis, con tu logo:
+📱 Wendy: ${CONTACTOS[0].numero}
+📱 Daniela: ${CONTACTOS[1].numero}
+(o mandanos un mensaje directo por acá)`;
 
 const CTA_COMUN = {
   tipo: 'cta',
