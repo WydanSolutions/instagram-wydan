@@ -265,6 +265,40 @@ const DESTACADAS = [
   { id: 'd5-contacto', nombre: 'Contacto', icono: 'chat' },
 ];
 
+// Historias que van adentro de cada destacada (1080 × 1920). Arriba y abajo Instagram tapa con sus botones:
+// el contenido va entre los 250 y los 1580 px. «Clientes» queda vacía hasta tener testimonios reales
+// (nunca inventarlos).
+const HISTORIAS = {
+  'd1-demos': [
+    { tipo: 'h-portada', foto: 'fotos/juntos-laptop.jpg', pos: '45% center', sticker: 'Demos', chip: 'Páginas que ya creamos', titulo: 'Una página <em>distinta</em> para cada negocio', bajada: 'Tocá para ver algunas →' },
+    { tipo: 'h-rubro', foto: 'fotos/estetica.jpg', pos: 'center 30%', img: 'aura', chip: 'Centro de estética', titulo: 'Turnos <em>sin superposiciones</em>', puntos: ['Agenda de cada profesional', 'Recordatorios por WhatsApp'] },
+    { tipo: 'h-rubro', foto: 'fotos/ferreteria.jpg', pos: '65% center', img: 'yunque', chip: 'Barraca y ferretería', titulo: 'Cada venta <em>descuenta el stock</em>', puntos: ['Ventas, caja y cuentas corrientes', 'Aviso de poco stock'] },
+    { tipo: 'h-rubro', foto: 'fotos/taller.jpg', pos: '40% 30%', img: 'motorfix', chip: 'Taller mecánico', titulo: 'Cada auto, <em>en qué etapa está</em>', puntos: ['Del ingreso a «Listo»', 'Lo pendiente de cobro, a la vista'] },
+    { tipo: 'h-rubro', foto: 'fotos/escribania.jpg', pos: 'center 55%', img: 'escribania', chip: 'Escribanía', titulo: 'Firmas y plazos <em>bajo control</em>', puntos: ['Carpetas por estado', 'Agenda de firmas y plazos'] },
+    { tipo: 'h-rubro', foto: 'fotos/contadora.jpg', pos: '70% 35%', img: 'contadores', chip: 'Estudio contable', titulo: 'Ningún vencimiento <em>se pasa</em>', puntos: ['Calendario de DGI y BPS', 'Tareas de cada cliente, con semáforo'] },
+  ],
+  'd2-como-funciona': [
+    { tipo: 'h-paso', num: 1, foto: 'fotos/mate.jpg', pos: 'center 45%', titulo: 'Nos contás cómo trabajás', cuerpo: 'Una charla por WhatsApp o en persona: qué hacés, qué anotás y qué te complica.' },
+    { tipo: 'h-paso', num: 2, foto: 'paginas/aura.png', pos: 'left top', titulo: 'Te armamos una demo gratis', cuerpo: 'En pocos días ves tu página funcionando, con tu logo y datos de ejemplo.' },
+    { tipo: 'h-paso', num: 3, foto: 'fotos/charla.jpg', pos: 'center 35%', titulo: 'La ajustamos juntos', cuerpo: 'Nos adaptamos a vos, no vos a nosotros.' },
+    { tipo: 'h-paso', num: 4, foto: 'fotos/celular-local.jpg', pos: 'center 30%', titulo: 'La usás todos los días', cuerpo: 'Desde la compu, el celular o la tablet. Y si necesitás una mano, estamos.' },
+    { tipo: 'h-cta', foto: 'fotos/mostrador-celular.jpg', titulo: 'Empezá por <em>el paso 1</em>', cuerpo: 'Escribinos DEMO y te armamos la tuya gratis, con tu logo.' },
+  ],
+  'd3-clientes': [],
+  'd4-preguntas': [
+    { tipo: 'h-portada', foto: 'fotos/duda.jpg', pos: '45% 25%', sticker: 'Sin vueltas', chip: 'Preguntas frecuentes', titulo: 'Lo que siempre <em>nos preguntan</em>', bajada: 'Tocá para ver las respuestas →' },
+    { tipo: 'h-pregunta', pregunta: '¿Hay que instalar algo?', respuesta: 'No. Se abre desde el navegador, como cualquier página. Entrás con tu usuario y tu contraseña.' },
+    { tipo: 'h-pregunta', pregunta: '¿Anda en el celular?', respuesta: 'Sí. Está pensada para usarse en la compu, el celular y la tablet.' },
+    { tipo: 'h-pregunta', pregunta: '¿Cuánto cuesta?', respuesta: 'Depende de lo que necesites: las secciones, los usuarios y las conexiones. Por eso primero te armamos la demo gratis y después te pasamos un presupuesto sin compromiso.' },
+    { tipo: 'h-pregunta', pregunta: '¿Cuánto demora?', respuesta: 'La demo, pocos días. La página terminada depende de lo que lleve, y te lo decimos antes de empezar.' },
+    { tipo: 'h-pregunta', pregunta: '¿Quién ve mis datos?', respuesta: 'Solo las personas que vos autorices, cada una con su usuario.' },
+    { tipo: 'h-cta', foto: 'fotos/celular-local.jpg', titulo: '¿Otra duda? <em>Escribinos</em>', cuerpo: 'Te respondemos por WhatsApp o por mensaje directo.' },
+  ],
+  'd5-contacto': [
+    { tipo: 'h-contacto', titulo: '<em>Hablemos</em>', cuerpo: 'Escribí DEMO y te armamos una demostración gratis, con tu logo.' },
+  ],
+};
+
 // Cronograma del primer mes (armado el 28/10/2026). Las publicaciones se suman solas por su `fecha`;
 // acá van las tareas que no son publicar. tipo: tarea · publicidad · revision · aviso
 const CRONOGRAMA = [
@@ -272,7 +306,7 @@ const CRONOGRAMA = [
   { fecha: '2026-10-29', tipo: 'tarea', titulo: 'Crear la cuenta de Instagram', detalle: 'Con wydan.solutions@gmail.com · usuario @wydan.solutions · pasarla a cuenta profesional → Empresa → categoría «Empresa de software».' },
   { fecha: '2026-10-29', tipo: 'tarea', titulo: 'Conectar Facebook y WhatsApp Business', detalle: 'Centro de cuentas: sumar la página de Facebook de Wydan. Agregar el botón de WhatsApp (097 096 996). Sin esto no se puede hacer publicidad.' },
   { fecha: '2026-10-30', tipo: 'tarea', titulo: 'Completar el perfil', detalle: 'Foto de perfil, nombre «Wydan | Páginas de gestión», categoría «Empresa de software», bio B y link a la web.' },
-  { fecha: '2026-10-30', tipo: 'tarea', titulo: 'Armar las 5 historias destacadas', detalle: 'Subir una historia para cada una (Demos, Cómo funciona, Clientes, Preguntas, Contacto), guardarla como destacada y ponerle su tapa.' },
+  { fecha: '2026-10-30', tipo: 'tarea', titulo: 'Armar las historias destacadas', detalle: 'Demos (6), Cómo funciona (5), Preguntas (7) y Contacto (1): subirlas en orden, destacarlas y ponerles su tapa. Están en la vista previa, sección «Historias destacadas». Clientes queda para cuando haya testimonios reales.' },
   { fecha: '2026-11-02', tipo: 'aviso', titulo: 'Feriado (Día de los Difuntos): no se publica', detalle: 'Buen día para dejar programadas las publicaciones de la semana en Meta Business Suite → Planificador.' },
   { fecha: '2026-11-03', hora: '20:00', tipo: 'tarea', titulo: 'Contarle a todos que arrancamos', detalle: 'Compartir el perfil en los estados de WhatsApp y pedirle a conocidos y clientes que nos sigan. Los primeros seguidores ayudan a que Instagram nos muestre.' },
   { fecha: '2026-11-09', tipo: 'publicidad', titulo: 'Primera publicidad', detalle: 'Promocionar el reel que más gustó la primera semana. Objetivo: mensajes por WhatsApp. Zona y presupuesto a definir (sugerido USD 3 a 5 por día, 7 días).' },
@@ -283,4 +317,4 @@ const CRONOGRAMA = [
   { fecha: '2026-11-30', tipo: 'revision', titulo: 'Balance del primer mes', detalle: 'Seguidores, mensajes, demos pedidas y ventas. Con eso se ajusta el plan.' },
 ];
 
-if (typeof module !== 'undefined') module.exports = { PUBLICACIONES, DESTACADAS, CRONOGRAMA, WHATSAPP };
+if (typeof module !== 'undefined') module.exports = { PUBLICACIONES, DESTACADAS, HISTORIAS, CRONOGRAMA, WHATSAPP };

@@ -170,11 +170,24 @@ Tu negocio ordenado en una página hecha para vos
   <h2 id="cronograma">Cronograma</h2>
   <div class="cronograma" id="lista-cronograma"></div>
 
+  <h2 id="historias">Historias destacadas</h2>
+  <div class="caja" style="margin-bottom:16px">
+    <h3>Cómo cargarlas (una sola vez)</h3>
+    <ol>
+      <li>Subí las historias de una destacada <b>en orden</b> (01, 02, 03…), como historia común.</li>
+      <li>En la última, tocá <b>«Destacar» → «Nueva»</b> y ponele el nombre (Demos, Cómo funciona…). Después agregá las demás desde «Destacar».</li>
+      <li>En el perfil, mantené apretada la destacada → <b>«Editar destacada» → «Editar portada»</b> y elegí su tapa.</li>
+      <li>En <b>Contacto</b>, agregá el sticker de <b>Enlace</b> con <code>https://wa.me/59897096996?text=DEMO</code> justo debajo de «Tocá el enlace».</li>
+    </ol>
+    <p style="margin-top:8px">Los reels también se pueden sumar a «Demos»: compartilos en tu historia y destacalos.</p>
+  </div>
+  <div id="lista-historias"></div>
+
   <h2>Las 12 publicaciones, en orden</h2>
   <div id="publicaciones"></div>
 </div>
 
-<script src="publicaciones.js?v=202610291735"></script>
+<script src="publicaciones.js?v=202610291747"></script>
 <script>
   const VIDEOS = 'videos/';
   const carpeta = p => `imagenes/${String(p.n).padStart(2, '0')}-${p.id}/`;
@@ -185,6 +198,17 @@ Tu negocio ordenado en una página hecha para vos
 
   document.getElementById('destacadas').innerHTML = DESTACADAS.map(d =>
     `<figure><img src="imagenes/destacadas/${d.id}.png" alt=""><figcaption>${d.nombre}</figcaption></figure>`).join('');
+
+  const historiasDe = d => (HISTORIAS[d.id] || []).map((_, i) => `imagenes/historias/${d.id}/${d.id}-${String(i + 1).padStart(2, '0')}.png`);
+  document.getElementById('lista-historias').innerHTML = DESTACADAS.map(d => {
+    const urls = historiasDe(d);
+    return `<article class="pub"><div class="pub-cabeza"><img src="imagenes/destacadas/${d.id}.png" alt="" style="width:38px;height:38px;border-radius:50%;object-fit:cover">
+      <h3>${d.nombre}</h3><span class="etq">${urls.length ? `${urls.length} historia${urls.length > 1 ? 's' : ''}` : 'Pendiente'}</span></div>
+      ${urls.length
+        ? `<div class="tira">${urls.map(u => `<img src="${u}" alt="" loading="lazy">`).join('')}</div>
+           <div class="descargas"><button class="bajar" data-bajar="historias:${d.id}">⬇ Descargar las ${urls.length} historia${urls.length > 1 ? 's' : ''}</button></div>`
+        : '<p>Queda vacía hasta tener <b>testimonios reales</b> de clientes (no se inventan). Mientras tanto, no la publiques.</p>'}</article>`;
+  }).join('');
 
   // En Instagram lo último que se publica queda arriba a la izquierda
   document.getElementById('grilla').innerHTML = [...PUBLICACIONES].reverse().map(p =>
@@ -259,6 +283,9 @@ Tu negocio ordenado en una página hecha para vos
   document.addEventListener('click', e => {
     const b = e.target.closest('.bajar');
     if (!b) return;
+    if (b.dataset.bajar.startsWith('historias:')) {
+      return bajar(historiasDe(DESTACADAS.find(d => d.id === b.dataset.bajar.slice(10))));
+    }
     if (b.dataset.bajar === 'perfil') {
       return bajar(['imagenes/perfil/foto-de-perfil.png', ...DESTACADAS.map(d => `imagenes/destacadas/${d.id}.png`)]);
     }
