@@ -7,7 +7,7 @@ const LANZAMIENTO = '2026-11-03';
 // ── Crecer sin invertir: por etapas, desde una cuenta vacía ──
 const ETAPAS_ORGANICAS = [
   {
-    id: 'e0', desde: '2026-10-30', hasta: '2026-11-02', nombre: 'Antes de lanzar',
+    id: 'e0', dias: [-4, -1], nombre: 'Antes de lanzar',
     objetivo: 'Que el perfil esté completo y tener a quién avisarle el día 1.',
     acciones: [
       'Armar la <b>lista de los primeros 100</b>: clientes actuales, conocidos de Wendy y Daniela y contactos del estudio. Una lista en el celular alcanza.',
@@ -18,10 +18,10 @@ const ETAPAS_ORGANICAS = [
     meta: 'Perfil 100 % completo y la lista armada.',
   },
   {
-    id: 'e1', desde: '2026-11-03', hasta: '2026-11-09', nombre: 'Semana del lanzamiento',
+    id: 'e1', dias: [0, 6], nombre: 'Semana del lanzamiento',
     objetivo: 'Los primeros seguidores: la gente que ya nos conoce.',
     acciones: [
-      'Martes 3/11: publicar la 1, la 2 y la 3 juntas.',
+      'Publicar la 1, la 2 y la 3 lo más juntas posible, para que el perfil no quede con una sola.',
       'Ese mismo día, <b>avisar a todos</b>: estados de WhatsApp de Wendy, Daniela y el estudio, Facebook personal y mensaje a la lista de 100.',
       'En Instagram: menú ☰ → <b>«Seguir e invitar amigos»</b> → invitar a los contactos y a los amigos de Facebook.',
       'Pedirles a <b>3 a 5 clientes</b> que sigan la cuenta y compartan una publicación en su historia. Cada uno nos muestra a su gente.',
@@ -31,7 +31,7 @@ const ETAPAS_ORGANICAS = [
     meta: '50 a 100 seguidores, la mayoría conocidos. Es lo normal para arrancar.',
   },
   {
-    id: 'e2', desde: '2026-11-10', hasta: '2026-11-30', nombre: 'Hacerse ver en Rivera',
+    id: 'e2', dias: [7, 27], nombre: 'Hacerse ver en Rivera',
     objetivo: 'Que nos descubran negocios que todavía no nos conocen.',
     acciones: [
       '<b>Rutina de 20 minutos por día</b> (más abajo, con casillas para tildar).',
@@ -44,7 +44,7 @@ const ETAPAS_ORGANICAS = [
     meta: '150 a 250 seguidores y los primeros mensajes «DEMO» de gente que no nos conocía.',
   },
   {
-    id: 'e3', desde: '2026-12-01', hasta: '2027-12-31', nombre: 'Crecer con constancia',
+    id: 'e3', dias: [28, 9999], nombre: 'Crecer con constancia',
     objetivo: 'Que la cuenta traiga consultas todas las semanas.',
     acciones: [
       '<b>Secciones fijas</b>: lunes «Consejo para tu negocio» (carrusel), miércoles «Demo en 30 segundos» (reel grabando la pantalla), viernes humor o mitos.',
@@ -84,7 +84,7 @@ const COMO_DECIDE_INSTAGRAM = [
 
 // ── Anuncios ──
 const ANUNCIOS = {
-  cuando: 'Desde el <b>lunes 9/11</b>. Antes no: quien toca el anuncio entra al perfil, y si lo ve vacío no escribe.',
+  cuando: 'Cuando el perfil ya tenga al menos 4 publicaciones: según el plan, el <b>{ads1}</b>. Antes no: quien toca el anuncio entra al perfil, y si lo ve vacío no escribe.',
   antes: [
     'Cuenta profesional (Empresa) ✓',
     'Página de Facebook de Wydan conectada en el Centro de cuentas.',
@@ -100,9 +100,9 @@ const ANUNCIOS = {
     'Intereses: pequeñas empresas, emprendimiento, administración de empresas, contabilidad, comercio minorista. O dejar que Meta busque solo (público Advantage+).',
   ],
   etapas: [
-    { cuando: '9/11 al 15/11', nombre: 'Prueba', detalle: '<b>Dos anuncios</b> con el mismo presupuesto chico (sugerido USD 2 por día cada uno): el reel <b>«El cronómetro»</b> y el reel <b>«Top 5 excusas»</b>. No tocarlos los primeros 3 días: Meta está aprendiendo.' },
-    { cuando: '16/11 al 29/11', nombre: 'Ganador', detalle: 'Apagar el que trajo menos mensajes. Al ganador, subirle de a poco el presupuesto. Sumar el carrusel <b>«Páginas que ya creamos»</b>.' },
-    { cuando: 'Desde diciembre', nombre: 'Volver a mostrar', detalle: 'Anuncio para la gente que <b>ya vio un reel o interactuó</b> en los últimos 30 días (público personalizado), con «Empezá 2027 ordenado».' },
+    { cuando: '{ads1} al {ads1fin}', nombre: 'Prueba', detalle: '<b>Dos anuncios</b> con el mismo presupuesto chico (sugerido USD 2 por día cada uno): el reel <b>«El cronómetro»</b> y el reel <b>«Top 5 excusas»</b>. No tocarlos los primeros 3 días: Meta está aprendiendo.' },
+    { cuando: '{ads2} al {ads2fin}', nombre: 'Ganador', detalle: 'Apagar el que trajo menos mensajes. Al ganador, subirle de a poco el presupuesto. Sumar el carrusel <b>«Páginas que ya creamos»</b>.' },
+    { cuando: 'Desde el {ads3}', nombre: 'Volver a mostrar', detalle: 'Anuncio para la gente que <b>ya vio un reel o interactuó</b> en los últimos 30 días (público personalizado), con «Empezá 2027 ordenado».' },
   ],
   reglas: [
     'Mirar el anuncio cada 2 o 3 días, no todos los días.',
@@ -179,7 +179,7 @@ const SEGUIMIENTO_COLUMNAS = [
   ['ventas', 'Ventas'],
   ['gasto', 'Gasto anuncios (USD)'],
 ];
-const SEGUIMIENTO_DESDE = '2026-11-02';  // lunes de la semana del lanzamiento
+const SEGUIMIENTO_DESDE = '2026-10-26';  // lunes de la semana en que salió la primera publicación
 const SEGUIMIENTO_SEMANAS = 12;
 
 if (typeof module !== 'undefined') module.exports = { LANZAMIENTO, ETAPAS_ORGANICAS, RUTINA_DIARIA, NO_HACER, COMO_DECIDE_INSTAGRAM, ANUNCIOS, TEXTOS_LISTOS, IDEAS, SEGUIMIENTO_COLUMNAS, SEGUIMIENTO_DESDE, SEGUIMIENTO_SEMANAS };

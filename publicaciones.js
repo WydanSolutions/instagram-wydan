@@ -30,7 +30,7 @@ const CTA_COMUN = {
 const PUBLICACIONES = [
   // ───────────────────────── LANZAMIENTO · martes 3/11 (las 3 juntas) ─────────────────────────
   {
-    n: 1, fecha: '2026-11-03', hora: '19:00', cuando: 'Mar 3/11 · lanzamiento', tipo: 'carrusel', id: 'c1-hola',
+    n: 1, publicada: '2026-10-30', fecha: '2026-11-03', hora: '19:00', cuando: 'Mar 3/11 · lanzamiento', tipo: 'carrusel', id: 'c1-hola',
     titulo: 'Hola, somos Wydan',
     laminas: [
       { tipo: 'presentacion', foto: 'fotos/presentacion.jpg', pos: 'center 30%', chip: 'Hola, somos', titulo: 'Páginas de gestión<br><em>hechas a medida</em><br>para tu negocio', etiquetas: ['Compu', 'Celular', 'Tablet', 'Sin instalar nada'] },
@@ -339,8 +339,13 @@ const HISTORIAS = {
   ],
 };
 
-// Cronograma del primer mes (armado el 28/10/2026). Las publicaciones se suman solas por su `fecha`;
-// acá van las tareas que no son publicar. tipo: tarea · publicidad · revision · aviso
+// Cronograma del primer mes (armado el 28/10/2026). Las publicaciones se suman solas; acá van las tareas que no
+// son publicar. tipo: tarea · publicidad · revision · aviso
+// ancla: n de la publicación de la que depende (y `mas`: días después). La página recalcula esas fechas según lo que
+// de verdad se publicó; `fecha` queda como la del plan original. En las publicaciones, `publicada` = día real.
+// Días de publicación y feriados para replanificar:
+const DIAS_PUBLICAR = [1, 3, 5];   // lunes, miércoles, viernes
+const FERIADOS = ['2026-11-02', '2026-12-25', '2027-01-01'];   // feriados de Uruguay en los que no se publica
 const CRONOGRAMA = [
   { fecha: '2026-10-28', tipo: 'revision', titulo: 'Revisar las publicaciones y los videos', detalle: 'Mirar la vista previa entera y avisar qué cambiar.' },
   { fecha: '2026-10-29', tipo: 'tarea', titulo: 'Crear la cuenta de Instagram', detalle: 'Con wydan.solutions@gmail.com · usuario @wydan.solutions · pasarla a cuenta profesional → Empresa → categoría «Empresa de software».' },
@@ -348,13 +353,13 @@ const CRONOGRAMA = [
   { fecha: '2026-10-30', tipo: 'tarea', titulo: 'Completar el perfil', detalle: 'Foto de perfil, nombre «Wydan | Páginas de gestión», categoría «Empresa de software», bio y los dos enlaces (WhatsApp con DEMO y la web).' },
   { fecha: '2026-10-30', tipo: 'tarea', titulo: 'Armar las historias destacadas', detalle: 'Crearlas al revés (Contacto → Preguntas → Clientes → Cómo funciona → Demos). Demos 6, Cómo funciona 5, Clientes 10 (mensajes y testimonios reales), Preguntas 7 y Contacto 1. Están en la vista previa, sección «Historias destacadas».' },
   { fecha: '2026-11-02', tipo: 'aviso', titulo: 'Feriado (Día de los Difuntos): no se publica', detalle: 'Buen día para dejar programadas las publicaciones de la semana en Meta Business Suite → Planificador.' },
-  { fecha: '2026-11-03', hora: '20:00', tipo: 'tarea', titulo: 'Contarle a todos que arrancamos', detalle: 'Compartir el perfil en los estados de WhatsApp y pedirle a conocidos y clientes que nos sigan. Los primeros seguidores ayudan a que Instagram nos muestre.' },
-  { fecha: '2026-11-09', tipo: 'publicidad', titulo: 'Primera publicidad', detalle: 'Promocionar el reel que más gustó la primera semana. Objetivo: mensajes por WhatsApp. Zona y presupuesto a definir (sugerido USD 3 a 5 por día, 7 días).' },
-  { fecha: '2026-11-13', tipo: 'revision', titulo: 'Revisar la primera publicidad', detalle: 'Cuántos mensajes trajo y cuánto costó cada uno. Seguir, cambiar el video o cambiar la zona.' },
-  { fecha: '2026-11-16', tipo: 'publicidad', titulo: 'Segunda publicidad', detalle: 'Probar con el carrusel «Páginas que ya creamos», apuntado a dueños de comercios y profesionales.' },
-  { fecha: '2026-11-20', tipo: 'revision', titulo: 'Revisión de mitad de mes', detalle: 'Qué publicación tuvo más alcance, guardados y mensajes. Repetir lo que funcionó.' },
-  { fecha: '2026-11-27', tipo: 'tarea', titulo: 'Armar el plan de diciembre', detalle: 'Idea: «Empezá 2027 con tu negocio ordenado» (fin de año, cierre de caja y balances).' },
-  { fecha: '2026-11-30', tipo: 'revision', titulo: 'Balance del primer mes', detalle: 'Seguidores, mensajes, demos pedidas y ventas. Con eso se ajusta el plan.' },
+  { fecha: '2026-11-03', ancla: 3, mas: 0, hora: '20:00', tipo: 'tarea', titulo: 'Contarle a todos que arrancamos', detalle: 'Compartir el perfil en los estados de WhatsApp y pedirle a conocidos y clientes que nos sigan. Los primeros seguidores ayudan a que Instagram nos muestre.' },
+  { fecha: '2026-11-09', ancla: 5, mas: 0, tipo: 'publicidad', titulo: 'Primera publicidad', detalle: 'Promocionar el reel que más gustó la primera semana. Objetivo: mensajes por WhatsApp. Zona y presupuesto a definir (sugerido USD 3 a 5 por día, 7 días).' },
+  { fecha: '2026-11-13', ancla: 5, mas: 4, tipo: 'revision', titulo: 'Revisar la primera publicidad', detalle: 'Cuántos mensajes trajo y cuánto costó cada uno. Seguir, cambiar el video o cambiar la zona.' },
+  { fecha: '2026-11-16', ancla: 8, mas: 0, tipo: 'publicidad', titulo: 'Segunda publicidad', detalle: 'Probar con el carrusel «Páginas que ya creamos», apuntado a dueños de comercios y profesionales.' },
+  { fecha: '2026-11-20', ancla: 10, mas: 0, tipo: 'revision', titulo: 'Revisión de mitad de mes', detalle: 'Qué publicación tuvo más alcance, guardados y mensajes. Repetir lo que funcionó.' },
+  { fecha: '2026-11-27', ancla: 12, mas: 2, tipo: 'tarea', titulo: 'Armar el plan de diciembre', detalle: 'Idea: «Empezá 2027 con tu negocio ordenado» (fin de año, cierre de caja y balances).' },
+  { fecha: '2026-11-30', ancla: 12, mas: 5, tipo: 'revision', titulo: 'Balance del primer mes', detalle: 'Seguidores, mensajes, demos pedidas y ventas. Con eso se ajusta el plan.' },
 ];
 
-if (typeof module !== 'undefined') module.exports = { PUBLICACIONES, DESTACADAS, HISTORIAS, CRONOGRAMA, WHATSAPP, CONTACTOS };
+if (typeof module !== 'undefined') module.exports = { PUBLICACIONES, DESTACADAS, HISTORIAS, CRONOGRAMA, DIAS_PUBLICAR, FERIADOS, WHATSAPP, CONTACTOS };

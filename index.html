@@ -87,6 +87,9 @@
   .pub-cabeza h3 { font: 800 20px/1.2 var(--f-titulo); color: var(--navy); }
   .etq { font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 4px 10px; border-radius: 99px; background: #E6EEF6; color: var(--hoja); }
   .etq.cuando { background: #EEF0F3; color: var(--acero); }
+  .etq.cuando.ya { background: #E3F4EA; color: var(--ok); }
+  .publicada-el { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; font-size: 14px; color: var(--acero); margin: -6px 0 14px; }
+  .publicada-el input { font: 500 16px var(--f-texto); padding: 4px 8px; border: 1px solid var(--linea); border-radius: 8px; color: var(--navy); background: var(--blanco); }
   .pub-cuerpo { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 22px; }
   .tira { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 8px; scroll-snap-type: x mandatory; }
   .tira img { height: 320px; border-radius: 10px; border: 1px solid var(--linea); display: block; }
@@ -274,7 +277,7 @@ Tu negocio ordenado en una página hecha para vos
 
   <section id="cronograma">
     <h2>Cronograma</h2>
-    <p class="bajada-seccion">Del 28/10 al 30/11. Tocá la casilla cuando algo esté hecho (se guarda en este aparato).</p>
+    <p class="bajada-seccion"><b>Se acomoda solo:</b> cuando tildás una publicación queda publicada hoy (la fecha se corrige en su tarjeta, «Publicada el»), y las que faltan y las tareas que dependen de ellas se corren. Lo que tildás se guarda en este aparato. El Google Calendar no se actualiza solo.</p>
     <div class="cronograma" id="lista-cronograma"></div>
   </section>
 
@@ -311,8 +314,8 @@ Tu negocio ordenado en una página hecha para vos
   </section>
 </div>
 
-<script src="publicaciones.js?v=202610301809"></script>
-<script src="estrategia.js?v=202610301809"></script>
+<script src="publicaciones.js?v=202610301816"></script>
+<script src="estrategia.js?v=202610301816"></script>
 <script>
   const VIDEOS = 'videos/';
   const carpeta = p => `imagenes/${String(p.n).padStart(2, '0')}-${p.id}/`;
@@ -359,7 +362,52 @@ Tu negocio ordenado en una página hecha para vos
       <div class="descargas"><button class="bajar" data-bajar="historias:${d.id}">⬇ Descargar las ${urls.length} historia${urls.length > 1 ? 's' : ''}</button></div></article>`;
   }).join('');
 
+  // ── Plan: se recalcula según lo que de verdad se publicó ──
+  // Lo publicado sale de publicaciones.js (`publicada`) y de lo que se tilda en este aparato (que manda).
+  // Lo pendiente: si todavía no se publicó nada, va el plan original (corrido si ya pasó); si ya hay algo publicado,
+  // las que faltan de las 3 primeras van juntas lo antes posible y el resto en el siguiente lunes, miércoles o viernes.
+  const CLAVE_PUBLICADAS = 'wydan-instagram-publicadas';
+  let publicadasLocal = guardado.leer(CLAVE_PUBLICADAS, {});
+  const fechaPublicada = p => (p.id in publicadasLocal) ? publicadasLocal[p.id] : (p.publicada || null);
+  const sePublica = (iso, cualquierDia) => !FERIADOS.includes(iso) && (cualquierDia || DIAS_PUBLICAR.includes(fechaDe(iso).getDay()));
+  const proximoDia = (desde, cualquierDia) => { let f = desde; while (!sePublica(f, cualquierDia)) f = sumarDias(f, 1); return f; };
+  let PLAN = {}, LANZ = LANZAMIENTO;
+
+  function planificar() {
+    PLAN = {};
+    let ultima = null;
+    for (const p of PUBLICACIONES) {
+      const f = fechaPublicada(p);
+      if (f) { PLAN[p.id] = { fecha: f, publicada: true }; if (!ultima || f > ultima) ultima = f; }
+    }
+    const pendientes = PUBLICACIONES.filter(p => !PLAN[p.id]);
+    if (!ultima && pendientes.every(p => p.fecha >= HOY)) {
+      pendientes.forEach(p => { PLAN[p.id] = { fecha: p.fecha, publicada: false }; });
+    } else {
+      let cursor = ultima && ultima >= HOY ? sumarDias(ultima, 1) : HOY;
+      const delLanzamiento = pendientes.filter(p => p.n <= 3);
+      if (delLanzamiento.length) {
+        const dia = proximoDia(cursor, true);
+        delLanzamiento.forEach(p => { PLAN[p.id] = { fecha: dia, publicada: false }; });
+        cursor = sumarDias(dia, 1);
+      }
+      for (const p of pendientes.filter(p => p.n > 3)) {
+        const dia = proximoDia(cursor, false);
+        PLAN[p.id] = { fecha: dia, publicada: false };
+        cursor = sumarDias(dia, 1);
+      }
+    }
+    LANZ = PLAN[PUBLICACIONES[0].id].fecha;
+  }
+  const fechaDePub = n => PLAN[PUBLICACIONES.find(p => p.n === n).id].fecha;
+  const fechaTarea = t => t.ancla ? sumarDias(fechaDePub(t.ancla), t.mas || 0) : t.fecha;
+  const cuandoPub = p => {
+    const pl = PLAN[p.id];
+    return pl.publicada ? `✓ Publicada el ${diaSemana(pl.fecha).slice(0, 3)} ${corta(fechaDe(pl.fecha))}` : `${diaSemana(pl.fecha).slice(0, 3)} ${corta(fechaDe(pl.fecha))} · ${p.hora} h`;
+  };
+
   // ── Publicaciones ──
+  function pintarPublicaciones() {
   document.getElementById('lista-publicaciones').innerHTML = PUBLICACIONES.map(p => {
     const visual = p.tipo === 'carrusel'
       ? `<div class="tira">${p.laminas.map((_, i) => lamina(`${carpeta(p)}${p.id}-${String(i + 1).padStart(2, '0')}.png`, i + 1)).join('')}</div>
@@ -368,7 +416,8 @@ Tu negocio ordenado en una página hecha para vos
          <p class="pie-img">Video: <code>videos/${p.video}</code> (${p.duracion}) · portada: <code>${tapa(p)}</code></p>`;
     return `<article class="pub" id="${p.id}">
       <div class="pub-cabeza"><span class="n">${p.n}</span><h3>${p.titulo}</h3>
-        <span class="etq">${p.tipo === 'reel' ? 'Reel' : 'Carrusel'}</span><span class="etq cuando">${p.cuando}</span></div>
+        <span class="etq">${p.tipo === 'reel' ? 'Reel' : 'Carrusel'}</span><span class="etq cuando ${PLAN[p.id].publicada ? 'ya' : ''}">${cuandoPub(p)}</span></div>
+      <label class="publicada-el">Publicada el <input type="date" data-publicada="${p.id}" value="${PLAN[p.id].publicada ? PLAN[p.id].fecha : ''}"></label>
       <div class="pub-cuerpo">
         <div>${visual}</div>
         <div><div class="texto">${escapar(p.texto)}</div><div class="hashtags">${p.hashtags}</div>
@@ -378,22 +427,27 @@ Tu negocio ordenado en una página hecha para vos
             : `<button class="bajar" data-bajar="${p.id}" data-que="video">⬇ Descargar el video</button><button class="bajar" data-bajar="${p.id}" data-que="portada">⬇ Descargar la portada</button>`}</div></div>
       </div></article>`;
   }).join('');
+  }
 
   // ── Cronograma y «Hoy»: las mismas tareas, con las mismas casillas ──
   const CLAVE_HECHOS = 'wydan-instagram-hechos';
   let hechos = guardado.leer(CLAVE_HECHOS, {});
   const NOMBRES = { publicacion: 'Publicar', tarea: 'Tarea', publicidad: 'Publicidad', revision: 'Revisar', aviso: 'Ojo' };
-  const ITEMS = [
-    ...CRONOGRAMA.map((t, k) => ({ ...t, clave: `t${k}`, orden: t.hora ? '0' + t.hora : '1' })),
-    ...PUBLICACIONES.map(p => ({ fecha: p.fecha, tipo: 'publicacion', clave: p.id, orden: '0' + p.hora,
-      titulo: `Publicar ${p.n}. ${p.titulo}`, detalle: `${p.tipo === 'reel' ? 'Reel' : 'Carrusel'} a las ${p.hora} h · <a href="#${p.id}">ver imágenes y texto</a>` })),
-  ].sort((a, b) => (a.fecha + a.orden).localeCompare(b.fecha + b.orden));
+  let ITEMS = [];
+  function armarItems() {
+    ITEMS = [
+      ...CRONOGRAMA.map((t, k) => ({ ...t, fecha: fechaTarea(t), clave: `t${k}`, orden: t.hora ? '0' + t.hora : '1' })),
+      ...PUBLICACIONES.map(p => ({ fecha: PLAN[p.id].fecha, tipo: 'publicacion', clave: p.id, orden: '0' + p.hora, pub: true,
+        titulo: `Publicar ${p.n}. ${p.titulo}`, detalle: `${p.tipo === 'reel' ? 'Reel' : 'Carrusel'} a las ${p.hora} h · <a href="#${p.id}">ver imágenes y texto</a>` })),
+    ].sort((a, b) => (a.fecha + a.orden).localeCompare(b.fecha + b.orden));
+  }
+  const estaHecho = t => t.pub ? PLAN[t.clave].publicada : !!hechos[t.clave];
   const filaTarea = (t, sinFecha) => {
     const f = fechaDe(t.fecha);
-    return `<div class="tarea ${sinFecha ? 'sin-fecha' : t.fecha === HOY ? 'hoy' : ''} ${hechos[t.clave] ? 'hecha' : ''}">
+    return `<div class="tarea ${sinFecha ? 'sin-fecha' : t.fecha === HOY ? 'hoy' : ''} ${estaHecho(t) ? 'hecha' : ''}">
       ${sinFecha ? '' : `<div class="fecha">${diaSemana(t.fecha)}<small>${corta(f)}${t.fecha === HOY ? '<span class="marca-hoy">HOY</span>' : ''}</small></div>`}
       <div class="que"><span class="tipo t-${t.tipo}">${NOMBRES[t.tipo]}</span><b>${t.titulo}</b><p>${t.detalle}</p></div>
-      <input type="checkbox" data-clave="${t.clave}" ${hechos[t.clave] ? 'checked' : ''} aria-label="Hecho"></div>`;
+      <input type="checkbox" data-clave="${t.clave}" ${t.pub ? 'data-pub="1"' : ''} ${estaHecho(t) ? 'checked' : ''} aria-label="Hecho"></div>`;
   };
 
   function pintarCronograma() {
@@ -406,22 +460,25 @@ Tu negocio ordenado en una página hecha para vos
     document.getElementById('lista-cronograma').innerHTML = html;
   }
 
-  const etapaDe = iso => ETAPAS_ORGANICAS.find(e => iso >= e.desde && iso <= e.hasta) || ETAPAS_ORGANICAS[0];
+  // Las etapas se cuentan en días desde el lanzamiento real
+  const rangoEtapa = e => [sumarDias(LANZ, e.dias[0]), sumarDias(LANZ, e.dias[1])];
+  const etapaDe = iso => ETAPAS_ORGANICAS.find(e => { const [a, b] = rangoEtapa(e); return iso >= a && iso <= b; })
+    || (iso < LANZ ? ETAPAS_ORGANICAS[0] : ETAPAS_ORGANICAS[ETAPAS_ORGANICAS.length - 1]);
   const CLAVE_RUTINA = 'wydan-instagram-rutina';
 
   function pintarHoy() {
     const etapa = etapaDe(HOY);
-    const falta = diasEntre(HOY, LANZAMIENTO);
-    const hechas = PUBLICACIONES.filter(p => hechos[p.id]).length;
+    const falta = diasEntre(HOY, LANZ);
+    const hechas = PUBLICACIONES.filter(p => PLAN[p.id].publicada).length;
     const deHoy = ITEMS.filter(t => t.fecha === HOY);
     const proximas = ITEMS.filter(t => t.fecha > HOY && t.fecha <= sumarDias(HOY, 7));
-    const pendientesAtras = ITEMS.filter(t => t.fecha < HOY && !hechos[t.clave]);
+    const pendientesAtras = ITEMS.filter(t => t.fecha < HOY && !estaHecho(t));
     const rutina = guardado.leer(CLAVE_RUTINA, {})[HOY] || {};
-    const conRutina = HOY >= LANZAMIENTO;
+    const conRutina = HOY >= LANZ;
     document.getElementById('hoy-contenido').innerHTML = `
       <div class="hoy-arriba">
         <div class="dato"><b>${falta > 0 ? `Faltan ${falta} día${falta > 1 ? 's' : ''}` : falta === 0 ? '¡Hoy lanzamos!' : `Día ${-falta + 1}`}</b>
-          <span>${falta > 0 ? 'para el lanzamiento (martes 3/11)' : falta === 0 ? 'publicaciones 1, 2 y 3 a las 19:00' : 'desde el lanzamiento'}</span></div>
+          <span>${falta > 0 ? `para el lanzamiento (${diaSemana(LANZ)} ${corta(fechaDe(LANZ))})` : falta === 0 ? 'día del lanzamiento' : `desde el lanzamiento (${corta(fechaDe(LANZ))})`}</span></div>
         <div class="dato claro"><b>${hechas} / ${PUBLICACIONES.length}</b><span>publicaciones hechas</span></div>
         <div class="dato claro"><b>${deHoy.length}</b><span>tarea${deHoy.length === 1 ? '' : 's'} para hoy</span></div>
       </div>
@@ -445,10 +502,25 @@ Tu negocio ordenado en una página hecha para vos
       </div>`;
   }
 
-  // Al tildar una tarea (en «Hoy» o en el cronograma) se actualizan las dos partes
+  // Vuelve a calcular y dibujar todo lo que depende de las fechas
+  function recalcular() {
+    planificar(); armarItems();
+    pintarPublicaciones(); pintarCronograma(); pintarHoy(); pintarOrganica(); pintarAnuncios();
+  }
+
+  // Al tildar una tarea (en «Hoy» o en el cronograma) se actualizan las dos partes.
+  // Una publicación tildada queda publicada HOY (la fecha se corrige en su tarjeta) y el plan se reacomoda.
   document.addEventListener('change', e => {
     const t = e.target;
-    if (t.dataset.clave) {
+    if (t.dataset.pub) {
+      publicadasLocal[t.dataset.clave] = t.checked ? HOY : null;
+      guardado.escribir(CLAVE_PUBLICADAS, publicadasLocal);
+      recalcular();
+    } else if (t.dataset.publicada) {
+      publicadasLocal[t.dataset.publicada] = t.value || null;
+      guardado.escribir(CLAVE_PUBLICADAS, publicadasLocal);
+      recalcular();
+    } else if (t.dataset.clave) {
       hechos[t.dataset.clave] = t.checked;
       guardado.escribir(CLAVE_HECHOS, hechos);
       pintarHoy(); pintarCronograma();
@@ -463,9 +535,9 @@ Tu negocio ordenado en una página hecha para vos
   });
 
   // ── Crecer sin invertir ──
-  (function pintarOrganica() {
+  function pintarOrganica() {
     const actual = etapaDe(HOY).id;
-    const rango = e => e.hasta.startsWith('2027') ? `Desde el ${corta(fechaDe(e.desde))}` : `Del ${corta(fechaDe(e.desde))} al ${corta(fechaDe(e.hasta))}`;
+    const rango = e => { const [a, b] = rangoEtapa(e); return e.dias[1] > 365 ? `Desde el ${corta(fechaDe(a))}` : `Del ${corta(fechaDe(a))} al ${corta(fechaDe(b))}`; };
     document.getElementById('organica-contenido').innerHTML = `
       <div class="pila">${ETAPAS_ORGANICAS.map((e, i) => `
         <div class="etapa ${e.id === actual ? 'ahora' : ''}">
@@ -488,11 +560,15 @@ Tu negocio ordenado en una página hecha para vos
       <div class="pila">${TEXTOS_LISTOS.map(t => `
         <div class="caja"><h3>${t.titulo}</h3><div class="texto-listo">${escapar(t.texto)}</div>
           <button class="copiar" data-texto="${t.id}">Copiar texto</button></div>`).join('')}</div>`;
-  })();
+  }
 
-  // ── Anuncios ──
-  (function pintarAnuncios() {
-    const A = ANUNCIOS;
+  // ── Anuncios (las fechas salen de la publicación 5, la que deja el perfil con contenido) ──
+  function pintarAnuncios() {
+    const ads1 = fechaDePub(5);
+    const f = iso => `${diaSemana(iso).slice(0, 3)} ${corta(fechaDe(iso))}`;
+    const fechas = { ads1: f(ads1), ads1fin: f(sumarDias(ads1, 6)), ads2: f(sumarDias(ads1, 7)), ads2fin: f(sumarDias(ads1, 20)), ads3: f(sumarDias(ads1, 21)) };
+    const poner = s => s.replace(/\{(\w+)\}/g, (_, k) => fechas[k] || '');
+    const A = { ...ANUNCIOS, cuando: poner(ANUNCIOS.cuando), etapas: ANUNCIOS.etapas.map(e => ({ ...e, cuando: poner(e.cuando) })) };
     document.getElementById('anuncios-contenido').innerHTML = `
       <div class="rejilla">
         <div class="caja"><h3>📅 Cuándo empezar</h3><p>${A.cuando}</p></div>
@@ -509,7 +585,7 @@ Tu negocio ordenado en una página hecha para vos
         <div class="caja"><h3>Qué mirar</h3>${A.metricas.map(([a, b]) => `<div class="par"><b>${a}</b><span>${b}</span></div>`).join('')}
           <p style="margin-top:8px;font-size:14px">Se anotan cada semana en <a href="#seguimiento">Seguimiento</a>.</p></div>
       </div>`;
-  })();
+  }
 
   // ── Seguimiento semanal ──
   const CLAVE_SEG = 'wydan-instagram-seguimiento';
@@ -540,7 +616,7 @@ Tu negocio ordenado en una página hecha para vos
   document.getElementById('ideas-contenido').innerHTML = `<div class="rejilla">${IDEAS.map(g =>
     `<div class="caja"><h3>${g.grupo}</h3><ul>${g.items.map(i => `<li>${i}</li>`).join('')}</ul></div>`).join('')}</div>`;
 
-  pintarCronograma(); pintarHoy(); pintarSeguimiento();
+  recalcular(); pintarSeguimiento();
 
   // Menú: marca la sección que se está viendo
   const menuDentro = document.querySelector('.menu-dentro');
